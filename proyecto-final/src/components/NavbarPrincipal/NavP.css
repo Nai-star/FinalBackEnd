@@ -1,0 +1,104 @@
+.NavBar {
+  height: 60px;
+  width: 100%;
+  background-color:whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Menor separación entre los enlaces principales */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.NavBar a,
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.NavBar a:hover,
+.dropbtn:hover {
+  color: #0077b6;
+}
+
+/* Dropdown vertical */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column; /* Vertical */
+  position: absolute;
+  top: 100%; /* Debajo del botón */
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0f7fa;
+}
+
+/* Flecha ▼ */
+.dropbtn {
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor de íconos */
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio reducido entre usuario y carrito */
+  
+}
+
+/* Icono usuario */
+.usuario {
+  width: 34px;
+  height: 34px;
+  fill: #343C54;
+   position: absolute;
+    right: 110px;
+      cursor: pointer;
+}
+
+/* Icono carrito */
+.carrito {
+  width: 34px;
+  height: 34px;
+  fill: #323544;
+    position: absolute;
+    right: 60px;
+      cursor: pointer;
+}
+
+/* Logo a la izquierda */
+.logo {
+  height: 90px; /* más pequeño */
+  width: auto;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+
