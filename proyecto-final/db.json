@@ -1,1 +1,10 @@
-{}
+{
+  "usuarios": [
+    {
+      "id": 1758562183398,
+      "nombre": "nai",
+      "correo": "rios@gmail.com",
+      "contraseña": "1234"
+    }
+  ]
+}

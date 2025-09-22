@@ -1,14 +1,14 @@
 .NavBar {
   height: 60px;
   width: 100%;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px; /* Menor separación entre los enlaces principales */
+  align-items: center;   /* centra verticalmente */
+  justify-content: center; /* los elementos empiezan desde la izquierda */
+  gap: 20px;
+  padding: 0 20px; /* espacio a los lados */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 1000;
 }
 
@@ -62,10 +62,10 @@
 
 /* Contenedor de íconos */
 .icon-container {
+  margin-left: auto; /* empuja todo a la derecha */
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio reducido entre usuario y carrito */
-  
+  gap: 10px;
 }
 
 /* Icono usuario */
@@ -97,7 +97,11 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+   z-index: 2000;
+   
+  
 }
+
 
 
 
