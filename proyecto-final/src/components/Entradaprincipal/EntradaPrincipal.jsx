@@ -1,18 +1,22 @@
 import fondo from '../../assets/fondo.png';
-import "./entradaP.css";
+import './entradaP.css';
+import{useNavigate} from "react-router-dom"
 
-function EntradaPrincipal() {
+function SeccionPrincipal() {
+  const navigate = useNavigate
   return (
-    <div className="entrada-principal">
-      {/* Fondo como imagen normal */}
+    <div className="fondo-contenedor">
       <img src={fondo} alt="fondoTicoLand" className="fondo" />
-
-      {/* Cuadro encima de la imagen */}
       <div className="cuadro">
-        <h1>Contenido del cuadro</h1>
+        <div className="planta">🌱 </div>
+        <h1>Los mejores productos</h1>
+          <p>TicoLand busca darte una experiencia unica</p>
+       <button onClick={()=>navigate()} >Descubre la colección</button>
+      
       </div>
     </div>
   );
 }
 
-export default EntradaPrincipal;
+export default SeccionPrincipal;
+
