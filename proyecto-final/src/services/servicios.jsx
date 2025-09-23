@@ -48,3 +48,29 @@ export async function updatePassword(userId, newPassword) {
       throw error;
    }
 }
+
+// Productos
+export async function postProductos(productos) {
+   try {
+      const response = await fetch("http://localhost:3001/productos", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(productos)
+      });
+      return await response.json();
+   } catch (error) {
+      console.error("Error al registrar el productos", error);
+      throw error;
+   }
+}
+
+export async function getProductos() {
+   try {
+      const response = await fetch("http://localhost:3001/productos");
+      if (!response.ok) throw new Error("Error al obtener usuarios");
+      return await response.json();
+   } catch (error) {
+      console.error("Error al obtener los productos", error);
+      throw error;
+   }
+}

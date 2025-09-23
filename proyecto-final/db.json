@@ -1,10 +1,16 @@
 {
   "usuarios": [
     {
-      "id": 1758562183398,
+      "id": "1758562183398",
       "nombre": "nai",
       "correo": "rios@gmail.com",
       "contraseña": "1234"
+    },
+    {
+      "id": 1758663964442,
+      "nombre": "uiw9g",
+      "correo": "sosqsss@gmail.om",
+      "contraseña": "0987"
     }
   ]
 }

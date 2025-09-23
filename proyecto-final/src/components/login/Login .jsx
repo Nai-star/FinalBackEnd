@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { getUsuarios } from "../../services/servicios";
 import "./login.css";
 import fondoLogin from "../../assets/fondoLogin.png";
-import { useNavigate } from "react-router-dom";
+import ModalLogin from "../modalLogin/ModalLogin";
 
 function Login() {
   const [usuarios, setUsuarios] = useState([]);
   const [nombreI, setNombreI] = useState("");
-  const [contraseñaI, setContraseñaI] = useState("");
+  const [contraseñaU, setContraseñaU] = useState("");
   const [mensajeLogin, setMensajeLogin] = useState("");
-  const navigate = useNavigate()
+  const [mostrarModal, setMostrarModal] = useState(false);
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -26,28 +26,15 @@ function Login() {
   const mostrarMensaje = (setMensaje, texto) => {
     setMensaje(texto);
     setTimeout(() => setMensaje(""), 4000);
+
+    if (!usuarios || !contraseñaU) {
+        mostrarMensaje(setMensajeRegistro, "⚠️ Complete todos los campos");
+        return;
+      }
   };
 
-  const handleLogin = () => {
-    if (!nombreI || !contraseñaI) {
-      mostrarMensaje(setMensajeLogin, "⚠️ Complete todos los campos");
-      return;
-    }
-
-    const usuario = usuarios.find(
-      (u) => u.nombre === nombreI && u.contraseña === contraseñaI
-    );
-
-    if (usuario) {
-      localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
-      mostrarMensaje(setMensajeLogin, "✅ Bienvenido " + usuario.nombre);
-      setTimeout(() => {
-        window.location.href = "/lista";
-      }, 1000);
-    } else {
-      mostrarMensaje(setMensajeLogin, "❌ Usuario o contraseña incorrectos");
-    }
-  };
+  // Quitamos handleLogin porque el login real se hace en las rutas específicas
+  // O si quieres puedes mantenerlo para validar datos aquí
 
   return (
     <main className="login-page">
@@ -74,8 +61,8 @@ function Login() {
             <span className="label-text">Contraseña:</span>
             <input
               type="password"
-              value={contraseñaI}
-              onChange={(e) => setContraseñaI(e.target.value)}
+              value={contraseñaU}
+              onChange={(e) => setContraseñaU(e.target.value)}
               placeholder="Introduce una contraseña"
             />
           </label>
@@ -89,7 +76,8 @@ function Login() {
             ¿Olvidaste tu contraseña? <a href="/recover">Recupérala aquí</a>
           </p>
 
-          <button className="btn primary" onClick={(handleLogin) => navigate("/")}>
+          {/* Este botón ahora solo abre el modal */}
+          <button className="btn primary" onClick={() => setMostrarModal(true)}>
             Iniciar Sesión
           </button>
           <p>{mensajeLogin}</p>
@@ -106,9 +94,11 @@ function Login() {
           <img src={fondoLogin} alt="fondoLoginTicoLand" />
         </div>
       </section>
+
+      {/* Modal */}
+      <ModalLogin visible={mostrarModal} onClose={() => setMostrarModal(false)} />
     </main>
   );
 }
 
 export default Login;
-
