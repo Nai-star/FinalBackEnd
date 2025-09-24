@@ -11,7 +11,7 @@ function SeccionPrincipal() {
         <div className="planta">🍀</div>
         <h1>Los mejores productos</h1>
           <p>TicoLand busca darte una experiencia única.</p>
-       <button onClick={()=>navigate("")} >Descubre la colección</button>
+       <button onClick={()=>navigate("/coleccion")} >Descubre la colección</button>
       
       </div>
     </div>

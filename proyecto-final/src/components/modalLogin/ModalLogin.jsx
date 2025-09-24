@@ -19,8 +19,8 @@ function ModalLogin({ visible, onClose }) {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>¿Cómo deseas iniciar sesión?</h2>
-        <button onClick={() => navigate ("/emprendedor")}>Como Emprendedor</button>
-        <button onClick={() => navigate("/catalogo")}>Como Usuario</button>
+        <button onClick={() => navigate ("/loginemprendedor")}>Como Emprendedor</button>
+        <button onClick={() => navigate("/registro")}>Como Usuario</button>
         <button onClick={onClose} className="cancelar">Cancelar</button>
       </div>
     </div>

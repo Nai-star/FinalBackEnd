@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { getUsuarios } from "../../services/servicios";
+import { useState, useEffect } from "react";
+import { getUsuarios, getEmprendedores } from "../../services/servicios";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import fondoLogin from "../../assets/fondoLogin.png";
-import ModalLogin from "../modalLogin/ModalLogin";
 
 function Login() {
+  const navigate = useNavigate();
   const [usuarios, setUsuarios] = useState([]);
   const [nombreI, setNombreI] = useState("");
   const [contraseñaU, setContraseñaU] = useState("");
@@ -23,18 +24,48 @@ function Login() {
     fetchUsuarios();
   }, []);
 
+  // Función para mostrar mensaje temporal
   const mostrarMensaje = (setMensaje, texto) => {
     setMensaje(texto);
     setTimeout(() => setMensaje(""), 4000);
-
-    if (!usuarios || !contraseñaU) {
-        mostrarMensaje(setMensajeRegistro, "⚠️ Complete todos los campos");
-        return;
-      }
   };
 
-  // Quitamos handleLogin porque el login real se hace en las rutas específicas
-  // O si quieres puedes mantenerlo para validar datos aquí
+  // Nueva función handleLogin con GET de usuarios y emprendedores
+  const handleLogin = async () => {
+    try {
+      if (!nombreI || !contraseñaU) {
+        mostrarMensaje(setMensajeLogin, "⚠️ Complete todos los campos");
+        return;
+      }
+
+      // Obtener usuarios y emprendedores desde JSON Server
+      const usuariosData = await getUsuarios();
+      const emprendedoresData = await getEmprendedores();
+
+      // Buscar en usuarios
+      const user = usuariosData.find(
+        (u) => u.nombre === nombreI && u.contraseña === contraseñaU
+      );
+      if (user) {
+        navigate("/usuarios"); // redirige a página de usuarios
+        return;
+      }
+
+      // Buscar en emprendedores
+      const emprendedor = emprendedoresData.find(
+        (e) => e.nombre === nombreI && e.contraseña === contraseñaU
+      );
+      if (emprendedor) {
+        navigate("/Paginaemprendedores"); // redirige a página de emprendedores
+        return;
+      }
+
+      mostrarMensaje(setMensajeLogin, "❌ Usuario o contraseña incorrectos");
+    } catch (error) {
+      console.error("Error en login:", error);
+      mostrarMensaje(setMensajeLogin, "⚠️ Error al conectar con el servidor");
+    }
+  };
 
   return (
     <main className="login-page">
@@ -76,8 +107,8 @@ function Login() {
             ¿Olvidaste tu contraseña? <a href="/recover">Recupérala aquí</a>
           </p>
 
-          {/* Este botón ahora solo abre el modal */}
-          <button className="btn primary" onClick={() => setMostrarModal(true)}>
+          {/* Botón ahora hace login real */}
+          <button className="btn primary" onClick={handleLogin}>
             Iniciar Sesión
           </button>
           <p>{mensajeLogin}</p>
@@ -88,15 +119,11 @@ function Login() {
         </div>
       </section>
 
-      {/* Lado derecho con imagen */}
       <section className="right">
         <div className="image-container">
           <img src={fondoLogin} alt="fondoLoginTicoLand" />
         </div>
       </section>
-
-      {/* Modal */}
-      <ModalLogin visible={mostrarModal} onClose={() => setMostrarModal(false)} />
     </main>
   );
 }

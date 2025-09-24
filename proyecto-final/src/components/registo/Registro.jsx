@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { postUsuarios, getUsuarios } from "../../services/servicios";
 import "./registro.css";
 import fondoLogin from "../../assets/fondoLogin.png";
+import ModalLogin from "../modalLogin/ModalLogin";
 
-function RegisterPage() {
+function Registro() {
   const [usuarios, setUsuarios] = useState([]);
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [mensajeRegistro, setMensajeRegistro] = useState("");
+  const [mostrarModal,setMostrarModal] = useState(false)
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -16,7 +18,12 @@ function RegisterPage() {
       setUsuarios(res);
     };
     fetchUsuarios();
-  }, []);
+  
+}, []);
+
+  useEffect(() => {
+  setMostrarModal(true);
+}, []);
 
   const mostrarMensaje = (setMensaje, texto) => {
     setMensaje(texto);
@@ -57,7 +64,10 @@ function RegisterPage() {
   };
 
   return (
+
+
     <div className="login-page">
+       <ModalLogin visible={mostrarModal} onClose={() => setMostrarModal(false)} />
       {/* Lado izquierdo: formulario */}
       <section className="left">
         <header className="brand">
@@ -117,4 +127,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default Registro;
