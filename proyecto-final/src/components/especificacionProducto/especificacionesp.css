@@ -1,0 +1,209 @@
+/* --- Variables --- */
+:root {
+    --color-fondo: #ffffff;
+    --color-fondo-resumen: #f8f8f8;
+    --color-texto-oscuro: #333333;
+    --color-texto-claro: #6c757d;
+    --color-acento-verde-cta: #6fa877;
+    --color-borde-input: #cccccc;
+    --fuente-principal: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-oscuro);
+}
+
+/* --- Estructura Principal: Contenedor de 2 Columnas --- */
+.checkout-container { 
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    border: 1px solid #e0e0e0; 
+}
+
+/* Columna Izquierda: Formulario */
+.checkout-container > div:first-child {
+    flex: 1.5; /* Más ancho para el formulario */
+    padding: 40px;
+    padding-right: 60px;
+    background-color: var(--color-fondo);
+}
+
+/* Columna Derecha: Resumen */
+.checkout-container > div:last-child {
+    flex: 1; /* Más angosto para el resumen */
+    padding: 40px;
+    background-color: var(--color-fondo-resumen);
+}
+
+/* --- Estilos Generales --- */
+h1 { /* TICO LAND */
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+h2 { /* Contacto, Dirección de envío */
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Breadcrumbs (Carrito > Detalles > Envío > Pago) */
+.checkout-container > div:first-child > p:nth-child(2) { 
+    font-size: 0.9em;
+    color: var(--color-texto-claro);
+    margin-bottom: 30px;
+}
+.checkout-container > div:first-child > p:nth-child(2) a,
+.checkout-container > div:first-child > p:nth-child(2) span {
+    color: var(--color-acento-verde-cta); /* Color de acento para la navegación */
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+/* Link Registrarse */
+.form-section > p a { 
+    font-size: 0.9em;
+    color: var(--color-acento-verde-cta);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+/* --- Estilos para Inputs y Selects --- */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde-input);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--color-texto-oscuro);
+}
+
+/* Fila de inputs dobles o triples (Nombre, Segundo nombre) */
+.input-row { 
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.input-row input,
+.input-row select {
+    flex: 1;
+    margin-bottom: 0; /* Elimina el margen inferior dentro de la fila */
+}
+
+/* Párrafo País/Región */
+.form-section p:last-of-type { 
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/* Estilos de Checkbox y Label */
+input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--color-acento-verde-cta);
+}
+.form-section > div label {
+    font-size: 0.9em;
+    color: var(--color-texto-claro);
+}
+
+/* --- Botones --- */
+.checkout-container a[href="/carrito"] { /* Volver al carrito */
+    color: var(--color-acento-verde-cta);
+    font-size: 1em;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.checkout-container button { /* Continuar con el envío */
+    padding: 12px 25px;
+    background-color: var(--color-acento-verde-cta);
+    color: var(--color-fondo);
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* --- Resumen de Carrito (Derecha) --- */
+
+/* Estilos para el elemento en el mapeo (Fila de Producto) */
+.checkout-container > div:last-child > div:nth-child(n+1):not(:last-child) { 
+    /* nth-child(n+1):not(:last-child) selecciona los productos antes de los totales */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Imagen del Producto */
+.checkout-container > div:last-child img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+/* Contenedor del nombre y cantidad */
+.checkout-container > div:last-child > div > div {
+    flex: 1; /* Ocupa el espacio central */
+}
+
+/* Cupón de Descuento */
+.checkout-container > div:last-child > div:nth-last-child(2) {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+.checkout-container > div:last-child input[placeholder="Código de cupón"] {
+    flex: 1;
+    margin-bottom: 0;
+}
+.checkout-container > div:last-child button {
+    padding: 10px 20px;
+    background-color: #cccccc; 
+    color: var(--color-texto-oscuro);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Filas de Subtotal/Envío/Total */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.summary-row:last-child { /* Fila Total */
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.summary-row span:last-child {
+    font-weight: 700;
+}

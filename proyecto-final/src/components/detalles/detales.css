@@ -1,0 +1,219 @@
+/* --- Variables (Consistencia con el diseño minimalista) --- */
+:root {
+    --color-fondo: #ffffff;
+    --color-fondo-resumen: #f8f8f8; /* Gris muy claro para el resumen de la derecha */
+    --color-texto-oscuro: #333333;
+    --color-texto-claro: #6c757d;
+    --color-acento-verde-cta: #6fa877; 
+    --color-borde-input: #cccccc;
+    --fuente-principal: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-oscuro);
+}
+
+/* --- Estructura Principal: Contenedor de 2 Columnas --- */
+/* ASUNCIÓN: Tu componente principal está envuelto en un solo div que centra el contenido. */
+/* Si no tienes un contenedor de 2 columnas, NECESITAS añadir uno. */
+.checkout-container { /* Reemplaza .checkout-container con el nombre del div de tu componente principal */
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    border: 1px solid #e0e0e0; /* Borde sutil alrededor de todo */
+}
+
+/* Columna Izquierda: Formulario (ASUNCIÓN: es el primer div hijo de .checkout-container) */
+.checkout-container > div:first-child {
+    flex: 1;
+    padding: 40px;
+    padding-right: 60px;
+    background-color: var(--color-fondo);
+}
+
+/* Columna Derecha: Resumen de Carrito (ASUNCIÓN: es el segundo div hijo de .checkout-container) */
+.checkout-container > div:last-child {
+    flex: 1;
+    padding: 40px;
+    background-color: var(--color-fondo-resumen);
+}
+
+/* --- Estilos de Navegación (Breadcrumbs) --- */
+.checkout-container > div:first-child > p { /* ASUNCIÓN: Breadcrumbs son etiquetas <p> */
+    font-size: 0.9em;
+    color: var(--color-texto-claro);
+    margin-bottom: 30px;
+}
+
+/* Los enlaces de "Carrito > Detalles > Envío > Pago" */
+.checkout-container > div:first-child > p a {
+    color: var(--color-acento-verde-cta);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* --- Estilos de la Sección de Contacto/Formulario --- */
+h2 { /* Títulos de sección (ej. Contacto) */
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* Link Registrarse/No tienes cuenta */
+.checkout-container > div:first-child > div:nth-child(3) > p > a { /* Selector muy específico! */
+    font-size: 0.9em;
+    color: var(--color-acento-verde-cta);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* Contenedor de los inputs de Nombre / Segundo nombre */
+/* ASUNCIÓN: Inputs están en el mismo div contenedor y se distribuyen */
+.input-row { /* Este div DEBE contener dos inputs (Nombre y Segundo nombre) */
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.input-row input {
+    flex: 1;
+}
+
+
+/* --- Estilos para TODOS los Inputs de Texto/Dropdowns --- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde-input);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--color-texto-oscuro);
+}
+
+/* Grupo de Ciudad, Código Postal, Provincia */
+.input-group-3 input,
+.input-group-3 select {
+    margin-right: 15px;
+}
+
+/* Checkbox (Guardar info para futura compra) */
+input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--color-acento-verde-cta);
+}
+
+/* --- Botones de Acción --- */
+
+/* 1. Volver al Carrito (Link/Botón de la Izquierda) */
+.checkout-container > div:first-child > div:last-child > a { /* Selector altamente dependiente de la estructura */
+    color: var(--color-acento-verde-cta);
+    font-size: 1em;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* 2. Continuar con el envío (Botón Principal) */
+button:last-child { /* ASUNCIÓN: Es el último elemento de la columna izquierda */
+    padding: 12px 25px;
+    background-color: var(--color-acento-verde-cta);
+    color: var(--color-fondo);
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* --- COLUMNA DERECHA: RESUMEN DE COMPRA --- */
+
+/* Estilo de la Imagen del Producto */
+.checkout-container > div:last-child img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+/* Estructura del Item (Imagen + Nombre) */
+.product-item { /* Asume que envuelves la imagen y el texto en un div */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Nombre del producto (Alba-AIRE) */
+.product-item p:first-child {
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Precio del producto */
+.product-item p:nth-child(2) {
+    font-weight: 500;
+    color: var(--color-acento-verde-cta);
+    font-size: 1em;
+}
+
+/* --- Cupón de Descuento --- */
+.coupon-section { /* Asume que envuelves el input y el botón en un div */
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.coupon-section input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.coupon-section button {
+    padding: 10px 20px;
+    background-color: #cccccc; /* Gris del botón de la imagen */
+    color: var(--color-texto-oscuro);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- Filas de Subtotal/Envío/Total --- */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.summary-row:last-of-type { /* Total */
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.summary-row:last-of-type span:last-child {
+    font-weight: 700;
+}
+
+.summary-row span:last-child {
+    font-weight: 500;
+}

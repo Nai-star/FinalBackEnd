@@ -92,9 +92,9 @@ export async function postProductos(productos) {
    }
 }
 
-export async function getProductos() {
+export async function getProductos(id) {
    try {
-      const response = await fetch("http://localhost:3001/productos");
+      const response = await fetch(`http://localhost:3001/productos/${id}`);
       if (!response.ok) throw new Error("Error al obtener el producto");
       return await response.json();
    } catch (error) {
@@ -124,6 +124,99 @@ export async function patchProductos(id, productoEditado) {
       return await response.json();
    } catch (error) {
       console.error(error);
+      throw error;
+   }
+}
+//carrito
+export async function addToCarrito(productoConCantidad) {
+   try {
+      // 1. Verificar si ya existe el producto en el carrito
+      const response = await fetch(`http://localhost:3001/carrito?id=${productoConCantidad.id}`);
+      const existentes = await response.json();
+
+      if (existentes.length > 0) {
+         // 2. Ya existe → actualizar cantidad
+         const existente = existentes[0];
+         const nuevaCantidad = existente.cantidad + productoConCantidad.cantidad;
+
+         const patchResponse = await fetch(`http://localhost:3001/carrito/${existente.id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ cantidad: nuevaCantidad })
+         });
+
+         if (!patchResponse.ok) throw new Error("Error al actualizar la cantidad del producto en el carrito");
+         return await patchResponse.json();
+      } else {
+         // 3. No existe → agregar nuevo producto al carrito
+         const postResponse = await fetch("http://localhost:3001/carrito", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(productoConCantidad)
+         });
+
+         if (!postResponse.ok) throw new Error("Error al agregar producto al carrito");
+         return await postResponse.json();
+      }
+   } catch (error) {
+      console.error("Error en addToCarrito:", error);
+      throw error;
+   }
+}
+
+// Obtener todos los productos del carrito
+export async function getCarrito() {
+   try {
+      const response = await fetch("http://localhost:3001/carrito");
+      if (!response.ok) throw new Error("Error al obtener el carrito");
+      return await response.json();
+   } catch (error) {
+      console.error("Error al obtener el carrito:", error);
+      throw error;
+   }
+}
+
+// Eliminar un producto del carrito por ID
+export async function deleteFromCarrito(id) {
+   try {
+      const response = await fetch(`http://localhost:3001/carrito/${id}`, {
+         method: "DELETE"
+      });
+      if (!response.ok) throw new Error("Error al eliminar producto del carrito");
+      return true;
+   } catch (error) {
+      console.error("Error al eliminar del carrito:", error);
+      throw error;
+   }
+}
+
+// Actualizar cantidad de un producto en el carrito
+export async function updateCarritoCantidad(id, nuevaCantidad) {
+   try {
+      const response = await fetch(`http://localhost:3001/carrito/${id}`, {
+         method: "PATCH",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ cantidad: nuevaCantidad })
+      });
+      if (!response.ok) throw new Error("Error al actualizar cantidad del producto");
+      return await response.json();
+   } catch (error) {
+      console.error("Error al actualizar cantidad:", error);
+      throw error;
+   }
+}
+
+
+export async function postDetalles(detalles) {
+   try {
+      const response = await fetch("http://localhost:3001/detalles", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(detalles)
+      });
+      return await response.json();
+   } catch (error) {
+      console.error("Error al registrar el usuario", error);
       throw error;
    }
 }

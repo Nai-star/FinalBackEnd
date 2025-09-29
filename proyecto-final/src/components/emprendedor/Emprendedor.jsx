@@ -8,7 +8,7 @@ const Emprendedor = () => {
   const [productos, setProductos] = useState([]);
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
-  const [imagen, setImagen] = useState(null); // 📌 usamos state para la imagen
+  const [imagen, setImagen] = useState(null); 
 
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ const Emprendedor = () => {
   // Agregar producto
   const agregarProducto = async () => {
     if (!nombre || !precio || !imagen) {
-      alert("Completa todos los campos e imagen");
+     
       return;
     }
 
@@ -57,7 +57,7 @@ const Emprendedor = () => {
     const guardado = await postProductos(nuevoProducto);
     setProductos((prev) => [...prev, guardado]);
 
-    // 📌 Limpiar todos los estados
+    //  Limpiar todos los estados
     setNombre("");
     setPrecio("");
     setImagen(null);

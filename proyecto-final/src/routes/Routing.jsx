@@ -7,6 +7,9 @@ import CatalogoP from "../pages/CatalogoP"
 import PaginaEmprendedor from '../pages/PaginaEmprendedor'
 import LoginEmpren from "../pages/LoginEmpren"
 import ColeccionP from '../pages/ColeccionP'
+import EspecificacionProducto from '../pages/Especificacion'
+import DetallesP from '../pages/DetallesP'
+import EnvioP from '../pages/EnvioP'
 
 
 const Routing=()=> {
@@ -22,6 +25,9 @@ const Routing=()=> {
              <Route path="/Paginaemprendedores" element={<PaginaEmprendedor/>}/>
              <Route path="/loginemprendedor" element={<LoginEmpren/>}/>
              <Route path="/coleccion" element={<ColeccionP/>}/>
+             <Route path="/producto/:id" element={<EspecificacionProducto />} />
+             <Route path="/detalles" element={<DetallesP />} /> 
+            <Route path="/envio" element={<EnvioP />} />
         </Routes>
       </Router>
     </div>
