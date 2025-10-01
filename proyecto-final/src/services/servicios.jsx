@@ -1,3 +1,29 @@
+//admin
+export async function postAdmin(admin) {
+   try {
+      const response = await fetch("http://localhost:3001/admin", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(admin)
+      });
+      return await response.json();
+   } catch (error) {
+      console.error("Error al obtener los datos del emprendedor", error);
+      throw error;
+   }
+}
+export async function getAdmin() {
+   try {
+      const response = await fetch("http://localhost:3001/admin");
+      if (!response.ok) throw new Error("Error al obtener admins");
+      return await response.json();
+   } catch (error) {
+      console.error("Error al obtener los admins", error);
+      throw error;
+   }
+}
+
+
 export async function postUsuarios(usuario) {
    try {
       const response = await fetch("http://localhost:3001/usuarios", {
@@ -65,6 +91,36 @@ export async function postEmprendedores(emprendedores) {
    }
 }
 
+export async function deleteEmprendedores(id) {
+   try {
+      const response = await fetch(`http://localhost:3001/emprendedores/${id}`, {
+         method: "DELETE",
+         headers: { "Content-Type": "application/json" }
+      });
+      return await response.json();
+   } catch (error) {
+      console.error(error);
+      throw error;
+   }
+}
+
+export async function updateemprendedores(id, emprendedor) {
+   console.log(id, emprendedor);
+   
+
+  // PATCH solo envía los campos que queremos actualizar
+  const res = await fetch(`http://localhost:3001/emprendedores/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(emprendedor),
+  });
+
+  if (!res.ok) throw new Error("Error al actualizar");
+
+  return await res.json();
+}
+
+
 export async function getEmprendedores() {
    try {
       const response = await fetch("http://localhost:3001/emprendedores");
@@ -75,6 +131,8 @@ export async function getEmprendedores() {
       throw error;
    }
 }
+
+
 
 //productos
 
@@ -213,6 +271,20 @@ export async function postDetalles(detalles) {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify(detalles)
+      });
+      return await response.json();
+   } catch (error) {
+      console.error("Error al registrar el usuario", error);
+      throw error;
+   }
+}
+
+export async function postPagos(pagos) {
+   try {
+      const response = await fetch("http://localhost:3001/pagos", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(pagos)
       });
       return await response.json();
    } catch (error) {

@@ -12,6 +12,8 @@ import DetallesP from '../pages/DetallesP'
 import EnvioP from '../pages/EnvioP'
 import PagoP from '../pages/PagoP'
 import ConfirmacionP from '../pages/ConfirmacionP'
+import AdminP from '../pages/AdminP'
+import LoginAdmin from '../pages/LoginAdmin'
 
 
 const Routing=()=> {
@@ -31,7 +33,9 @@ const Routing=()=> {
              <Route path="/detalles" element={<DetallesP />} /> 
             <Route path="/envio" element={<EnvioP />} />
                <Route path="/pago" element={<PagoP />} />
-                <Route path="/confi" element={<ConfirmacionP />} />
+              <Route path="/confi" element={<ConfirmacionP />} />
+               <Route path="/Admin" element={<AdminP />} /> 
+              <Route path="/registroAdmin" element={<LoginAdmin />} /> 
         </Routes>
       </Router>
     </div>

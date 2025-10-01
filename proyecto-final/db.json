@@ -1,4 +1,20 @@
 {
+  "admin": [
+    {
+      "id": 1759339844377,
+      "nombre": "bbb",
+      "correo": "sosqsss@gmail.om",
+      "numero": "111",
+      "contraseña": "venus1001"
+    },
+    {
+      "id": 1759339910641,
+      "nombre": "aaa",
+      "correo": "sosqsssaaaaa@gmail.om",
+      "numero": "1111",
+      "contraseña": "venus1001"
+    }
+  ],
   "usuarios": [
     {
       "id": "1758562183398",
@@ -11,16 +27,22 @@
       "nombre": "uiw9g",
       "correo": "sosqsss@gmail.om",
       "contraseña": "0987"
+    },
+    {
+      "id": 1759346566690,
+      "nombre": "Venus cr",
+      "correo": "Venus@gmail.com",
+      "contraseña": "venus1001"
     }
   ],
   "emprendedores": [
     {
-      "id": "1758731557525",
-      "nombre": "Venus",
-      "correo": "venuscr1029@gmail.com",
-      "numero": "1298290200",
-      "nombreTienda": "VenusCr",
-      "ubi": "heredia,cr",
+      "id": 1759346770891,
+      "nombre": "aaa",
+      "correo": "aaaa@gam",
+      "numero": "111111",
+      "nombreTienda": "11111",
+      "ubi": "Venus",
       "contraseña": "venus1001"
     }
   ],
@@ -177,7 +199,7 @@
       ]
     },
     {
-      "id": "9418",
+      "id": "235e",
       "email": "",
       "nombre": "",
       "segundoNombre": "",
@@ -200,152 +222,295 @@
       ]
     },
     {
-      "id": "3ac2",
-      "email": "",
-      "nombre": "",
-      "segundoNombre": "",
-      "direccion": "",
-      "nota": "",
-      "ciudad": "",
-      "codigoPostal": "",
-      "provincia": "",
+      "id": "e596",
+      "email": "rios@gmail.com",
+      "nombre": "Nai",
+      "segundoNombre": "4elisha",
+      "direccion": "fwd",
+      "nota": "fwd",
+      "ciudad": "chacara",
+      "codigoPostal": "8282",
+      "provincia": "Puntarenas",
       "pais": "Costa Rica",
       "boletin": false,
-      "guardarInfo": false,
-      "carrito": [
-        {
-          "id": "df86",
-          "nombre": "vela",
-          "precio": "35",
-          "img": "data:image/avif;base64,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",
-          "cantidad": 7
-        }
-      ]
-    },
-    {
-      "id": "5111",
-      "email": "",
-      "nombre": "",
-      "segundoNombre": "",
-      "direccion": "",
-      "nota": "",
-      "ciudad": "",
-      "codigoPostal": "",
-      "provincia": "",
-      "pais": "Costa Rica",
-      "boletin": false,
-      "guardarInfo": false,
-      "carrito": [
-        {
-          "id": "df86",
-          "nombre": "vela",
-          "precio": "35",
-          "img": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAGNbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAsaWxvYwAAAABEAAACAAEAAAABAAACCAAABqIAAgAAAAEAAAG1AAAAUwAAAEJpaW5mAAAAAAACAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAAAaaW5mZQIAAAAAAgAAYXYwMUFscGhhAAAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAw2lwcnAAAACdaXBjbwAAABRpc3BlAAAAAAAAAc0AAAHNAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQEMAAAAABNjb2xybmNseAACAAIAAoAAAAAOcGl4aQAAAAABCAAAAAxhdjFDgQEcAAAAADhhdXhDAAAAAHVybjptcGVnOm1wZWdCOmNpY3A6c3lzdGVtczphdXhpbGlhcnk6YWxwaGEAAAAAHmlwbWEAAAAAAAAAAgABBAECgwQAAgQBBYYHAAAG/W1kYXQSAAoKAAAADEczmG18lTJDEACNgDjiUQAAu8nlJT92FSPlnfdrJI2kx9yYlpKAQ0wnYnVaGKh9tiw1GefEVPCG9Pycay8TDs99XZTbIAAITzbpgBIACgsAAAAMRzOYbXyEIDKQDRAAiQAIIIIJRBAAALvDLmId4nppwhYmLzYXgCWVQOAgAhfbwpb+VyHsckJc6SWtmc7khWCytZ+zVn/fsRZ4A5/C/2iKvD8yyf9tJySHGSxuU3iVxnFMwRmQOBsf5LwR0V8Oe8ya9CPfOCcc91naLPMXgA8JEIK/GuUBXYmuRA4zOigtXQwRqgFO9NCz8s7D4XJeG3l9Jy6bh4TWsJC6vFiEFMezMtJyz028FhQRAwboknuFGTROy4Z0KajQgSi4Z/EAXbD0tnUewm20l0CHBDSAfUptkQMwPxB2GHhF0uM4YeEcVUFRfNKi2+//2GwgnjgHUfU47rxMQRWhPBm2qnUkyh5FuQ55cqP6VxDDvx6sEi5sEGheV1ww81PjsydfdMuRCfNFo7h+mMnspZ+FkdcLpg7BRrUs9gtwdM0E1lXG1+7bKCu8J5+dSAAO/Ty1j8fnbigj4E2TklM0TBNHmkRprcnxZnj4oYgymnnJSH6hYOhMD+IbSBnHYwX7WqeGOyKidfuH9dykZiVMJxDWiDlizq6MRUCHoj2EwTdgWjxAaPBk3K9hOOy5tmScsy6diU0e5iVYtG4tO/3vcI1eK8UmX8YV3I8xn3vYXmrIvWrG6WhVPaEllDmnnJZqhFJTrkUP0tT3Y+9yagk+PZ3ATJ0dMCfYX21QYpyKJehStuno646VjptsiLzR7Ot1T0KIXQ9aQTzDidPZdszOX1fLAYYIraNV3KbXmB26UCFGtPKsfKhD6ZsgE7N/uZ0Mo07HyMQDla8pC8n9rq51HtJLwnVh5lnuxyJ7HU8USWAzIh/nrO98QQn5Z2ofjdugSHg3xMGjxahnSJSmC4j6V7QNfILLk4NZ0SlJ3okG+jkwBLiSzda9iUPsX+kpt1JH0og66Rx/yxbu/aUVUjs+n3gWjrqPwmCHvXfJSv7KD5loOyAtTjrleqBKQryNGO2Ft1itoi/rKFmGnUaq+C/UR1YY1l71Pp9pjyZQdRabDw//ZOllzJBhVkuA3rGThwQWBnt+JTAQZL8kBgn2Tvv1tFUWx2YWpBeo3rmijZszUfTfDie37u6m/vL4vcWr/7fbuGHJTAiAzlAcEkBUJCRFElM1dZGod8x8u6BIb90ujl7d9EpRE4vNqj6FygOl047F8z7NKQ7iLEjCo1aC5VC4EyW+3zZMV3HaohwqBwB55SEkdUsjlKQUKcvs8ow7x/Dm1NnQgrCIqfvEMbZzNy3FcDyaUs2+0UCenIG4vtkm9E9bCo+BiY79AYYe+0A1xA1T+4txgDNykMeeuiWfX7eFKgnFTkhnqJlzajcNJAO2F+i7Gd/v19TU1BjveXl8XDfhqJhtd993n20yzWyLC7/pR8/5njlkWZbFCxeq77kdzGe7T251FwCB2ZRhkMZctWyRueYhrHlqGK9IgM1KuuJa2xXtb22vjxAgBU2ectTyxyr26pYn7LarTKnZzMeQXIn2jPrrXKLTxg7cFBsWU1TlcOEytDivO3SF5pnL0s0mpzABsoB/4VSW0XbonwxZ1gLMIjwt0RO8Vs7s7hycC8KAhogxiOmJqRKIRgtG9pzi7m9SJTqeTZy3GmzmiWEqXghRiZSBtu5ghcBo5IkPa6UxS98hR69KDn96P1UY5fhyGya4pX94+MVGqKJAeSAagcBSlJvoAZ0FV9Z9NkBwa5S0zRcQ08JNMmI2tC4QGbjmRYB59woXZ3DPu9H97/Z4oaThlYJ1XAyxFuGP9zZbkXFNqHT1dJf+6EGc8+dwhxswU5xHO7KlAeCvvcHJfjbmx+qc5vjK5DmSEVnmU8zf8iQipOtDM8RrOe6YxYYRjht+7EiUgqSWIvJeNnoPveK11CsmD6d3jFUWcxQ/exA7fV3qEDQ8MD8/RXShDIFPNDCi4HdgGedw6BhvL1xG74BPONZTK7v38l724kDGrPLLE4zns9QjO95Azik41V8glZUDQ7CnT46oyt1dUPvxOwaDhB0Ajau4FQcB0h6SfwkQ6xCTzZFvODxCJH3GEVWrtztrsCthOmp8UOjRm3HiobW/70hzKExQpGD3PJra42vdSUh3hJ2lenVIHCs2H98cKhh+BLu9iI/Tp73FCvozcfgUhJd/6cC2vU4eKNuiGJVr1uU7+mPc30zhGNEJAVCPvsk11j91Dx1kYNeOPSaU+3GkDRtZ3pKF98aFD2TYcFF3zi+bsz45xQ9rnuBMb88eUkIGBVv0LZPkgwSf/Cm94gYb5z64DsmagA==",
-          "cantidad": 7
-        }
-      ]
-    },
-    {
-      "id": "21a2",
-      "email": "",
-      "nombre": "",
-      "segundoNombre": "",
-      "direccion": "",
-      "nota": "",
-      "ciudad": "",
-      "codigoPostal": "",
-      "provincia": "",
-      "pais": "Costa Rica",
-      "boletin": false,
-      "guardarInfo": false,
-      "carrito": [
-        {
-          "id": "df86",
-          "nombre": "vela",
-          "precio": "35",
-          "img": "data:image/avif;base64,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",
-          "cantidad": 7
-        }
-      ]
-    },
-    {
-      "id": "b0f1",
-      "email": "",
-      "nombre": "",
-      "segundoNombre": "",
-      "direccion": "",
-      "nota": "",
-      "ciudad": "",
-      "codigoPostal": "",
-      "provincia": "",
-      "pais": "Costa Rica",
-      "boletin": false,
-      "guardarInfo": false,
-      "carrito": [
-        {
-          "id": "df86",
-          "nombre": "vela",
-          "precio": "35",
-          "img": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAGNbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAsaWxvYwAAAABEAAACAAEAAAABAAACCAAABqIAAgAAAAEAAAG1AAAAUwAAAEJpaW5mAAAAAAACAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAAAaaW5mZQIAAAAAAgAAYXYwMUFscGhhAAAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAw2lwcnAAAACdaXBjbwAAABRpc3BlAAAAAAAAAc0AAAHNAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQEMAAAAABNjb2xybmNseAACAAIAAoAAAAAOcGl4aQAAAAABCAAAAAxhdjFDgQEcAAAAADhhdXhDAAAAAHVybjptcGVnOm1wZWdCOmNpY3A6c3lzdGVtczphdXhpbGlhcnk6YWxwaGEAAAAAHmlwbWEAAAAAAAAAAgABBAECgwQAAgQBBYYHAAAG/W1kYXQSAAoKAAAADEczmG18lTJDEACNgDjiUQAAu8nlJT92FSPlnfdrJI2kx9yYlpKAQ0wnYnVaGKh9tiw1GefEVPCG9Pycay8TDs99XZTbIAAITzbpgBIACgsAAAAMRzOYbXyEIDKQDRAAiQAIIIIJRBAAALvDLmId4nppwhYmLzYXgCWVQOAgAhfbwpb+VyHsckJc6SWtmc7khWCytZ+zVn/fsRZ4A5/C/2iKvD8yyf9tJySHGSxuU3iVxnFMwRmQOBsf5LwR0V8Oe8ya9CPfOCcc91naLPMXgA8JEIK/GuUBXYmuRA4zOigtXQwRqgFO9NCz8s7D4XJeG3l9Jy6bh4TWsJC6vFiEFMezMtJyz028FhQRAwboknuFGTROy4Z0KajQgSi4Z/EAXbD0tnUewm20l0CHBDSAfUptkQMwPxB2GHhF0uM4YeEcVUFRfNKi2+//2GwgnjgHUfU47rxMQRWhPBm2qnUkyh5FuQ55cqP6VxDDvx6sEi5sEGheV1ww81PjsydfdMuRCfNFo7h+mMnspZ+FkdcLpg7BRrUs9gtwdM0E1lXG1+7bKCu8J5+dSAAO/Ty1j8fnbigj4E2TklM0TBNHmkRprcnxZnj4oYgymnnJSH6hYOhMD+IbSBnHYwX7WqeGOyKidfuH9dykZiVMJxDWiDlizq6MRUCHoj2EwTdgWjxAaPBk3K9hOOy5tmScsy6diU0e5iVYtG4tO/3vcI1eK8UmX8YV3I8xn3vYXmrIvWrG6WhVPaEllDmnnJZqhFJTrkUP0tT3Y+9yagk+PZ3ATJ0dMCfYX21QYpyKJehStuno646VjptsiLzR7Ot1T0KIXQ9aQTzDidPZdszOX1fLAYYIraNV3KbXmB26UCFGtPKsfKhD6ZsgE7N/uZ0Mo07HyMQDla8pC8n9rq51HtJLwnVh5lnuxyJ7HU8USWAzIh/nrO98QQn5Z2ofjdugSHg3xMGjxahnSJSmC4j6V7QNfILLk4NZ0SlJ3okG+jkwBLiSzda9iUPsX+kpt1JH0og66Rx/yxbu/aUVUjs+n3gWjrqPwmCHvXfJSv7KD5loOyAtTjrleqBKQryNGO2Ft1itoi/rKFmGnUaq+C/UR1YY1l71Pp9pjyZQdRabDw//ZOllzJBhVkuA3rGThwQWBnt+JTAQZL8kBgn2Tvv1tFUWx2YWpBeo3rmijZszUfTfDie37u6m/vL4vcWr/7fbuGHJTAiAzlAcEkBUJCRFElM1dZGod8x8u6BIb90ujl7d9EpRE4vNqj6FygOl047F8z7NKQ7iLEjCo1aC5VC4EyW+3zZMV3HaohwqBwB55SEkdUsjlKQUKcvs8ow7x/Dm1NnQgrCIqfvEMbZzNy3FcDyaUs2+0UCenIG4vtkm9E9bCo+BiY79AYYe+0A1xA1T+4txgDNykMeeuiWfX7eFKgnFTkhnqJlzajcNJAO2F+i7Gd/v19TU1BjveXl8XDfhqJhtd993n20yzWyLC7/pR8/5njlkWZbFCxeq77kdzGe7T251FwCB2ZRhkMZctWyRueYhrHlqGK9IgM1KuuJa2xXtb22vjxAgBU2ectTyxyr26pYn7LarTKnZzMeQXIn2jPrrXKLTxg7cFBsWU1TlcOEytDivO3SF5pnL0s0mpzABsoB/4VSW0XbonwxZ1gLMIjwt0RO8Vs7s7hycC8KAhogxiOmJqRKIRgtG9pzi7m9SJTqeTZy3GmzmiWEqXghRiZSBtu5ghcBo5IkPa6UxS98hR69KDn96P1UY5fhyGya4pX94+MVGqKJAeSAagcBSlJvoAZ0FV9Z9NkBwa5S0zRcQ08JNMmI2tC4QGbjmRYB59woXZ3DPu9H97/Z4oaThlYJ1XAyxFuGP9zZbkXFNqHT1dJf+6EGc8+dwhxswU5xHO7KlAeCvvcHJfjbmx+qc5vjK5DmSEVnmU8zf8iQipOtDM8RrOe6YxYYRjht+7EiUgqSWIvJeNnoPveK11CsmD6d3jFUWcxQ/exA7fV3qEDQ8MD8/RXShDIFPNDCi4HdgGedw6BhvL1xG74BPONZTK7v38l724kDGrPLLE4zns9QjO95Azik41V8glZUDQ7CnT46oyt1dUPvxOwaDhB0Ajau4FQcB0h6SfwkQ6xCTzZFvODxCJH3GEVWrtztrsCthOmp8UOjRm3HiobW/70hzKExQpGD3PJra42vdSUh3hJ2lenVIHCs2H98cKhh+BLu9iI/Tp73FCvozcfgUhJd/6cC2vU4eKNuiGJVr1uU7+mPc30zhGNEJAVCPvsk11j91Dx1kYNeOPSaU+3GkDRtZ3pKF98aFD2TYcFF3zi+bsz45xQ9rnuBMb88eUkIGBVv0LZPkgwSf/Cm94gYb5z64DsmagA==",
-          "cantidad": 7
-        }
-      ]
-    },
-    {
-      "id": "3a4a",
-      "email": "nairiosfwd@gmail.com",
-      "nombre": "nai",
-      "segundoNombre": "rli",
-      "direccion": "aaa",
-      "nota": "aaa",
-      "ciudad": "aa",
-      "codigoPostal": "aa",
-      "provincia": "San José",
-      "pais": "Costa Rica",
-      "boletin": true,
       "guardarInfo": true
     },
     {
-      "id": "301e",
-      "email": "nairiosfwd@gmail.com",
-      "nombre": "nai",
-      "segundoNombre": "rli",
-      "direccion": "aaa",
-      "nota": "aaa",
-      "ciudad": "aa",
-      "codigoPostal": "aa",
-      "provincia": "San José",
+      "id": "8685",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
       "pais": "Costa Rica",
-      "boletin": true,
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id": "c8c2",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
+      "pais": "Costa Rica",
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id": "2692",
+      "email": "rios@gmail.com",
+      "nombre": "Nai",
+      "segundoNombre": "4elisha",
+      "direccion": "fwd",
+      "nota": "fwd",
+      "ciudad": "chacara",
+      "codigoPostal": "8282",
+      "provincia": "Puntarenas",
+      "pais": "Costa Rica",
+      "boletin": false,
       "guardarInfo": true
     },
     {
-      "id": "d0ed",
-      "email": "nairiosfwd@gmail.com",
-      "nombre": "nai",
-      "segundoNombre": "rli",
-      "direccion": "aaa",
-      "nota": "aaa",
-      "ciudad": "aa",
-      "codigoPostal": "aa",
-      "provincia": "San José",
+      "id": "9a11",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
       "pais": "Costa Rica",
-      "boletin": true,
-      "guardarInfo": true
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
     },
     {
-      "id": "1080",
-      "email": "nairiosfwd@gmail.com",
-      "nombre": "nai",
-      "segundoNombre": "rli",
-      "direccion": "aaa",
-      "nota": "aaa",
-      "ciudad": "aa",
-      "codigoPostal": "aa",
-      "provincia": "San José",
+      "id": "4eae",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
       "pais": "Costa Rica",
-      "boletin": true,
-      "guardarInfo": true
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id": "c7f5",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
+      "pais": "Costa Rica",
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAGNbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAsaWxvYwAAAABEAAACAAEAAAABAAACCAAABqIAAgAAAAEAAAG1AAAAUwAAAEJpaW5mAAAAAAACAAAAGmluZmUCAAAAAAEAAGF2MDFDb2xvcgAAAAAaaW5mZQIAAAAAAgAAYXYwMUFscGhhAAAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAw2lwcnAAAACdaXBjbwAAABRpc3BlAAAAAAAAAc0AAAHNAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQEMAAAAABNjb2xybmNseAACAAIAAoAAAAAOcGl4aQAAAAABCAAAAAxhdjFDgQEcAAAAADhhdXhDAAAAAHVybjptcGVnOm1wZWdCOmNpY3A6c3lzdGVtczphdXhpbGlhcnk6YWxwaGEAAAAAHmlwbWEAAAAAAAAAAgABBAECgwQAAgQBBYYHAAAG/W1kYXQSAAoKAAAADEczmG18lTJDEACNgDjiUQAAu8nlJT92FSPlnfdrJI2kx9yYlpKAQ0wnYnVaGKh9tiw1GefEVPCG9Pycay8TDs99XZTbIAAITzbpgBIACgsAAAAMRzOYbXyEIDKQDRAAiQAIIIIJRBAAALvDLmId4nppwhYmLzYXgCWVQOAgAhfbwpb+VyHsckJc6SWtmc7khWCytZ+zVn/fsRZ4A5/C/2iKvD8yyf9tJySHGSxuU3iVxnFMwRmQOBsf5LwR0V8Oe8ya9CPfOCcc91naLPMXgA8JEIK/GuUBXYmuRA4zOigtXQwRqgFO9NCz8s7D4XJeG3l9Jy6bh4TWsJC6vFiEFMezMtJyz028FhQRAwboknuFGTROy4Z0KajQgSi4Z/EAXbD0tnUewm20l0CHBDSAfUptkQMwPxB2GHhF0uM4YeEcVUFRfNKi2+//2GwgnjgHUfU47rxMQRWhPBm2qnUkyh5FuQ55cqP6VxDDvx6sEi5sEGheV1ww81PjsydfdMuRCfNFo7h+mMnspZ+FkdcLpg7BRrUs9gtwdM0E1lXG1+7bKCu8J5+dSAAO/Ty1j8fnbigj4E2TklM0TBNHmkRprcnxZnj4oYgymnnJSH6hYOhMD+IbSBnHYwX7WqeGOyKidfuH9dykZiVMJxDWiDlizq6MRUCHoj2EwTdgWjxAaPBk3K9hOOy5tmScsy6diU0e5iVYtG4tO/3vcI1eK8UmX8YV3I8xn3vYXmrIvWrG6WhVPaEllDmnnJZqhFJTrkUP0tT3Y+9yagk+PZ3ATJ0dMCfYX21QYpyKJehStuno646VjptsiLzR7Ot1T0KIXQ9aQTzDidPZdszOX1fLAYYIraNV3KbXmB26UCFGtPKsfKhD6ZsgE7N/uZ0Mo07HyMQDla8pC8n9rq51HtJLwnVh5lnuxyJ7HU8USWAzIh/nrO98QQn5Z2ofjdugSHg3xMGjxahnSJSmC4j6V7QNfILLk4NZ0SlJ3okG+jkwBLiSzda9iUPsX+kpt1JH0og66Rx/yxbu/aUVUjs+n3gWjrqPwmCHvXfJSv7KD5loOyAtTjrleqBKQryNGO2Ft1itoi/rKFmGnUaq+C/UR1YY1l71Pp9pjyZQdRabDw//ZOllzJBhVkuA3rGThwQWBnt+JTAQZL8kBgn2Tvv1tFUWx2YWpBeo3rmijZszUfTfDie37u6m/vL4vcWr/7fbuGHJTAiAzlAcEkBUJCRFElM1dZGod8x8u6BIb90ujl7d9EpRE4vNqj6FygOl047F8z7NKQ7iLEjCo1aC5VC4EyW+3zZMV3HaohwqBwB55SEkdUsjlKQUKcvs8ow7x/Dm1NnQgrCIqfvEMbZzNy3FcDyaUs2+0UCenIG4vtkm9E9bCo+BiY79AYYe+0A1xA1T+4txgDNykMeeuiWfX7eFKgnFTkhnqJlzajcNJAO2F+i7Gd/v19TU1BjveXl8XDfhqJhtd993n20yzWyLC7/pR8/5njlkWZbFCxeq77kdzGe7T251FwCB2ZRhkMZctWyRueYhrHlqGK9IgM1KuuJa2xXtb22vjxAgBU2ectTyxyr26pYn7LarTKnZzMeQXIn2jPrrXKLTxg7cFBsWU1TlcOEytDivO3SF5pnL0s0mpzABsoB/4VSW0XbonwxZ1gLMIjwt0RO8Vs7s7hycC8KAhogxiOmJqRKIRgtG9pzi7m9SJTqeTZy3GmzmiWEqXghRiZSBtu5ghcBo5IkPa6UxS98hR69KDn96P1UY5fhyGya4pX94+MVGqKJAeSAagcBSlJvoAZ0FV9Z9NkBwa5S0zRcQ08JNMmI2tC4QGbjmRYB59woXZ3DPu9H97/Z4oaThlYJ1XAyxFuGP9zZbkXFNqHT1dJf+6EGc8+dwhxswU5xHO7KlAeCvvcHJfjbmx+qc5vjK5DmSEVnmU8zf8iQipOtDM8RrOe6YxYYRjht+7EiUgqSWIvJeNnoPveK11CsmD6d3jFUWcxQ/exA7fV3qEDQ8MD8/RXShDIFPNDCi4HdgGedw6BhvL1xG74BPONZTK7v38l724kDGrPLLE4zns9QjO95Azik41V8glZUDQ7CnT46oyt1dUPvxOwaDhB0Ajau4FQcB0h6SfwkQ6xCTzZFvODxCJH3GEVWrtztrsCthOmp8UOjRm3HiobW/70hzKExQpGD3PJra42vdSUh3hJ2lenVIHCs2H98cKhh+BLu9iI/Tp73FCvozcfgUhJd/6cC2vU4eKNuiGJVr1uU7+mPc30zhGNEJAVCPvsk11j91Dx1kYNeOPSaU+3GkDRtZ3pKF98aFD2TYcFF3zi+bsz45xQ9rnuBMb88eUkIGBVv0LZPkgwSf/Cm94gYb5z64DsmagA==",
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id": "4d01",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
+      "pais": "Costa Rica",
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
+    },
+    {
+      "id": "e838",
+      "email": "",
+      "nombre": "",
+      "segundoNombre": "",
+      "direccion": "",
+      "nota": "",
+      "ciudad": "",
+      "codigoPostal": "",
+      "provincia": "",
+      "pais": "Costa Rica",
+      "boletin": false,
+      "guardarInfo": false,
+      "carrito": [
+        {
+          "id": "df86",
+          "nombre": "vela",
+          "precio": "35",
+          "img": "data:image/avif;base64,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",
+          "cantidad": 7
+        }
+      ]
+    }
+  ],
+  "pagos": [
+    {
+      "id": "faa0",
+      "contacto": "jan.spagnuolo@addy.com",
+      "direccionEnvio": "Via Firenze 23, 50023, Campi Bisenzio LI, Italia",
+      "metodoEnvio": "Envío estándar - gratis",
+      "producto": "Alba-AIRE",
+      "precio": 9.99,
+      "cantidad": 1,
+      "total": "9.99",
+      "tarjeta": {
+        "numero": "3200 8882 8888 2222",
+        "nombre": "naidelyn",
+        "expiracion": "22/20",
+        "cvv": "000",
+        "banco": "aa",
+        "comentario": "aaa",
+        "opcionCompra": "different"
+      },
+      "cupon": "aa"
+    },
+    {
+      "id": "ec33",
+      "contacto": "jan.spagnuolo@addy.com",
+      "direccionEnvio": "Via Firenze 23, 50023, Campi Bisenzio LI, Italia",
+      "metodoEnvio": "Envío estándar - gratis",
+      "producto": "Alba-AIRE",
+      "precio": 9.99,
+      "cantidad": 1,
+      "total": "9.99",
+      "tarjeta": {
+        "numero": "3200 8882 8888 2222",
+        "nombre": "naidelyn",
+        "expiracion": "22/20",
+        "cvv": "000",
+        "banco": "aa",
+        "comentario": "aaa",
+        "opcionCompra": "different"
+      },
+      "cupon": "aa"
+    },
+    {
+      "id": "52a8",
+      "contacto": "jan.spagnuolo@addy.com",
+      "direccionEnvio": "Via Firenze 23, 50023, Campi Bisenzio LI, Italia",
+      "metodoEnvio": "Envío estándar - gratis",
+      "producto": "Alba-AIRE",
+      "precio": 9.99,
+      "cantidad": 1,
+      "total": "9.99",
+      "tarjeta": {
+        "numero": " 111 11111 11111 111",
+        "nombre": "naidelyn",
+        "expiracion": "00/00",
+        "cvv": "123",
+        "banco": "aa",
+        "comentario": "aaa",
+        "opcionCompra": "different"
+      },
+      "cupon": "aa"
+    },
+    {
+      "id": "20ea",
+      "contacto": "jan.spagnuolo@addy.com",
+      "direccionEnvio": "Via Firenze 23, 50023, Campi Bisenzio LI, Italia",
+      "metodoEnvio": "Envío estándar - gratis",
+      "producto": "Alba-AIRE",
+      "precio": 9.99,
+      "cantidad": 1,
+      "total": "9.99",
+      "tarjeta": {
+        "numero": " 111 11111 11111 111",
+        "nombre": "naidelyn",
+        "expiracion": "00/00",
+        "cvv": "123",
+        "banco": "aa",
+        "comentario": "aaa",
+        "opcionCompra": "different"
+      },
+      "cupon": "aa"
+    },
+    {
+      "id": "cbfe",
+      "contacto": "jan.spagnuolo@addy.com",
+      "direccionEnvio": "Via Firenze 23, 50023, Campi Bisenzio LI, Italia",
+      "metodoEnvio": "Envío estándar - gratis",
+      "producto": "Alba-AIRE",
+      "precio": 9.99,
+      "cantidad": 1,
+      "total": "9.99",
+      "tarjeta": {
+        "numero": "1111 1111 1111 1111",
+        "nombre": "naidelyn",
+        "expiracion": "00/00",
+        "cvv": "000",
+        "banco": "aa",
+        "comentario": "aaa",
+        "opcionCompra": "same"
+      },
+      "cupon": ""
     }
   ]
 }

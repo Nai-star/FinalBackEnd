@@ -13,14 +13,36 @@ function CarritoInfo() {
       .catch((error) => console.error("Error al obtener carrito:", error));
   }, []);
 
-  // ---- helper robusto para convertir precios que pueden venir como string con $ u otros formatos
+  // ---- helper robusto para convertir precios
   const parsePrice = (p) => {
     if (typeof p === "number") return p;
     if (!p) return 0;
-    // eliminar cualquier carácter que no sea dígito, punto, coma o signo negativo
     const limpiar = String(p).replace(/[^0-9.,-]/g, "").replace(",", ".");
     const num = parseFloat(limpiar);
     return isNaN(num) ? 0 : num;
+  };
+
+  // ---- funciones de carrito ----
+  const handleRemove = (id) => {
+    setCarrito((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const handleIncrease = (id) => {
+    setCarrito((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, cantidad: (Number(item.cantidad) || 1) + 1 } : item
+      )
+    );
+  };
+
+  const handleDecrease = (id) => {
+    setCarrito((prev) =>
+      prev.map((item) =>
+        item.id === id && item.cantidad > 1
+          ? { ...item, cantidad: (Number(item.cantidad) || 1) - 1 }
+          : item
+      )
+    );
   };
 
   const calcularTotal = () => {
@@ -62,16 +84,21 @@ function CarritoInfo() {
                   {item.img && <img src={item.img} alt={item.producto} />}
                   <div>
                     <p>{item.producto}</p>
-                    <button className="remove-btn">Eliminar</button>
+                    <button
+                      className="remove-btn"
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      Eliminar
+                    </button>
                   </div>
                 </div>
 
                 <span>${price.toFixed(2)}</span>
 
                 <div className="quantity-controls">
-                  <button>-</button>
+                  <button onClick={() => handleDecrease(item.id)}>-</button>
                   <span>{qty}</span>
-                  <button>+</button>
+                  <button onClick={() => handleIncrease(item.id)}>+</button>
                 </div>
 
                 <span>${totalItem.toFixed(2)}</span>
@@ -98,4 +125,3 @@ function CarritoInfo() {
 }
 
 export default CarritoInfo;
-

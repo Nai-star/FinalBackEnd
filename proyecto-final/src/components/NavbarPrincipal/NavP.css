@@ -3,104 +3,79 @@
   width: 100%;
   background-color: whitesmoke;
   display: flex;
-  align-items: center;   /* centra verticalmente */
-  justify-content: center; /* los elementos empiezan desde la izquierda */
+  align-items: center;
+  justify-content: center;
   gap: 20px;
-  padding: 0 20px; /* espacio a los lados */
+  padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1000;
+  flex-wrap: nowrap; /* Mantener en una línea por defecto */
 }
 
-.NavBar a,
-.dropbtn {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.NavBar a:hover,
-.dropbtn:hover {
-  color: #0077b6;
-}
-
-/* Dropdown vertical */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: flex;
-  flex-direction: column; /* Vertical */
-  position: absolute;
-  top: 100%; /* Debajo del botón */
-  left: 0;
-  background-color: #f9f9f9;
-  min-width: 150px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  border-radius: 4px;
-}
-
-.dropdown-content a {
-  color: #333;
-  white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-  background-color: #e0f7fa;
-}
-
-/* Flecha ▼ */
-.dropbtn {
-  display: flex;
-  align-items: center;
-}
-
-/* Contenedor de íconos */
-.icon-container {
-  margin-left: auto; /* empuja todo a la derecha */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Icono usuario */
-.usuario {
-  width: 34px;
-  height: 34px;
-  fill: #343C54;
-   position: absolute;
-    right: 110px;
-      cursor: pointer;
-}
-
-/* Icono carrito */
-.carrito {
-  width: 34px;
-  height: 34px;
-  fill: #323544;
-    position: absolute;
-    right: 60px;
-      cursor: pointer;
-}
-
-/* Logo a la izquierda */
 .logo {
-  height: 90px; /* más pequeño */
+  height: 90px;
   width: auto;
   position: absolute;
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-   z-index: 2000;
-   
-  
+  z-index: 2000;
 }
+
+.usuario {
+  width: 34px;
+  height: 34px;
+  fill: #343C54;
+  position: absolute;
+  right: 110px;
+  cursor: pointer;
+}
+
+.carrito {
+  width: 34px;
+  height: 34px;
+  fill: #323544;
+  position: absolute;
+  right: 60px;
+  cursor: pointer;
+}
+
+/* ----------------- MEDIA QUERIES ----------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .logo { height: 70px; left: 15px; }
+  .usuario { width: 28px; height: 28px; right: 90px; }
+  .carrito { width: 28px; height: 28px; right: 50px; }
+  .NavBar { gap: 10px; }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .NavBar { 
+    flex-wrap: wrap; /* Permite que los íconos bajen de línea si no caben */
+    justify-content: space-between; 
+    padding: 0 10px;
+    height: auto;
+  }
+  .logo { height: 60px; position: relative; left: 0; transform: none; margin-bottom: 5px; }
+  .icon-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  .usuario, .carrito { position: relative; right: 0; }
+}
+
+/* Muy pequeños */
+@media (max-width: 480px) {
+  .logo { height: 50px; }
+  .usuario, .carrito { width: 24px; height: 24px; }
+}
+
 
 
 

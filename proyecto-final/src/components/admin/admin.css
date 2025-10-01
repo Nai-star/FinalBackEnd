@@ -1,0 +1,117 @@
+.admin-page {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+}
+
+.admin-page h1 {
+  text-align: center;
+  color: #2f3640;
+  margin-bottom: 30px;
+}
+
+/* Cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card p {
+  margin: 6px 0;
+  color: #2f3640;
+  font-weight: 500;
+}
+
+.card .acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card .acciones button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.card .acciones button.editar {
+  background-color: #00a8ff;
+  color: white;
+}
+
+.card .acciones button.editar:hover {
+  background-color: #0097e6;
+}
+
+.card .acciones button.borrar {
+  background-color: #e84118;
+  color: white;
+}
+
+.card .acciones button.borrar:hover {
+  background-color: #c23616;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+}
+
+.modal-content .acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-content .acciones button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+}

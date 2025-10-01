@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getUsuarios, getEmprendedores } from "../../services/servicios";
+import { getUsuarios, getEmprendedores,getAdmin } from "../../services/servicios";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import fondoLogin from "../../assets/fondoLogin.png";
@@ -41,13 +41,14 @@ function Login() {
       // Obtener usuarios y emprendedores desde JSON Server
       const usuariosData = await getUsuarios();
       const emprendedoresData = await getEmprendedores();
+      const adminsData = await getAdmin()
 
       // Buscar en usuarios
       const user = usuariosData.find(
         (u) => u.nombre === nombreI && u.contraseña === contraseñaU
       );
       if (user) {
-        navigate("/usuarios"); // redirige a página de usuarios
+        navigate("/"); // redirige a página de usuarios
         return;
       }
 
@@ -57,6 +58,15 @@ function Login() {
       );
       if (emprendedor) {
         navigate("/Paginaemprendedores"); // redirige a página de emprendedores
+        return;
+      }
+      //Buscar admins
+
+      const Admin= adminsData.find(
+        (u) => u.nombre === nombreI && u.contraseña === contraseñaU
+      );
+      if (Admin) {
+        navigate("/Admin"); // redirige a página de Admins
         return;
       }
 
