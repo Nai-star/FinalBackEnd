@@ -1,0 +1,203 @@
+/* ====== Layout general ====== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  font-family: Arial, sans-serif;
+}
+
+/* ====== Columna izquierda (formulario) ====== */
+.left-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.left-section h2 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+  color: #333;
+}
+
+.left-section p {
+  font-size: 14px;
+  color: #555;
+}
+
+.left-section a {
+  color: #56B280;
+  text-decoration: none;
+}
+
+.left-section a:hover {
+  text-decoration: underline;
+}
+
+/* Inputs generales */
+.left-section input,
+.left-section select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.left-section input:focus,
+.left-section select:focus {
+  border-color: #56B280;
+  outline: none;
+}
+
+/* Inputs en línea */
+.form-inline {
+  display: flex;
+  gap: 10px;
+}
+
+.form-inline input,
+.form-inline select {
+  flex: 1;
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.checkbox input {
+  width: 16px;
+  height: 16px;
+}
+
+/* Botones y acciones */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.actions a {
+  color: #56B280;
+  text-decoration: none;
+}
+
+.actions button {
+  background: #56B280;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+
+.actions button:hover {
+  background: #44996d;
+}
+
+/* ====== Columna derecha (resumen de compra) ====== */
+.cart-summary {
+  flex: 1;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item .quantity-badge {
+  position: absolute;
+  top: -5px;
+  left: -10px;
+  background: #56B280;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
+
+/* Cupon */
+.coupon {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.coupon button {
+  padding: 10px 15px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.coupon button:hover {
+  background: #111;
+}
+
+/* Totales */
+.totals {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.totals div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totals .total {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .cart-summary {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+}

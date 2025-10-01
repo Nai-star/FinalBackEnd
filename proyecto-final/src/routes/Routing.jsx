@@ -10,6 +10,8 @@ import ColeccionP from '../pages/ColeccionP'
 import EspecificacionProducto from '../pages/Especificacion'
 import DetallesP from '../pages/DetallesP'
 import EnvioP from '../pages/EnvioP'
+import PagoP from '../pages/PagoP'
+import ConfirmacionP from '../pages/ConfirmacionP'
 
 
 const Routing=()=> {
@@ -28,6 +30,8 @@ const Routing=()=> {
              <Route path="/producto/:id" element={<EspecificacionProducto />} />
              <Route path="/detalles" element={<DetallesP />} /> 
             <Route path="/envio" element={<EnvioP />} />
+               <Route path="/pago" element={<PagoP />} />
+                <Route path="/confi" element={<ConfirmacionP />} />
         </Routes>
       </Router>
     </div>
