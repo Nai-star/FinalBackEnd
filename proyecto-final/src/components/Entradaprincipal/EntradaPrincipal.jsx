@@ -2,7 +2,7 @@ import fondo from '../../assets/fondo.png';
 import './entradaP.css';
 import{useNavigate} from "react-router-dom"
 
-function SeccionPrincipal() {
+function EntradaPrincipal() {
   const navigate = useNavigate ()
   return (
     <div className="fondo-contenedor">
@@ -18,5 +18,5 @@ function SeccionPrincipal() {
   );
 }
 
-export default SeccionPrincipal;
+export default EntradaPrincipal;
 

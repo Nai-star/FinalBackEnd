@@ -1,51 +1,63 @@
+/* Página principal del admin */
 .admin-page {
   padding: 20px;
   font-family: 'Arial', sans-serif;
   background-color: #f5f6fa;
   min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto; /* Centrar contenido */
 }
 
+/* Título */
 .admin-page h1 {
   text-align: center;
   color: #2f3640;
   margin-bottom: 30px;
+  font-size: 2rem;
 }
 
-/* Cards */
+/* Contenedor de cards */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Cards más anchas */
+  gap: 30px;
 }
 
+/* Cada card */
 .card {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  width: 70%;
 }
 
+/* Efecto hover */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Texto de las cards */
 .card p {
-  margin: 6px 0;
+  margin: 10px 0;
   color: #2f3640;
   font-weight: 500;
+  font-size: 1.1rem;
 }
 
+/* Botones dentro de las cards */
 .card .acciones {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .card .acciones button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  font-size: 1rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -53,6 +65,7 @@
   transition: all 0.3s;
 }
 
+/* Botón editar */
 .card .acciones button.editar {
   background-color: #00a8ff;
   color: white;
@@ -62,6 +75,7 @@
   background-color: #0097e6;
 }
 
+/* Botón borrar */
 .card .acciones button.borrar {
   background-color: #e84118;
   color: white;
@@ -78,40 +92,68 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
+/* Contenido del modal */
 .modal-content {
   background-color: #fff;
   padding: 25px;
   border-radius: 12px;
   text-align: center;
-  width: 350px;
+  width: 400px;
   max-width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
 }
 
+/* Inputs del modal */
 .modal-content input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #dcdde1;
+  font-size: 1rem;
 }
 
+/* Botones del modal */
 .modal-content .acciones {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 15px;
 }
 
 .modal-content .acciones button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive: 1 columna en móviles */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-page {
+    padding: 15px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 70%;
+    }
 }

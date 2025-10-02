@@ -21,6 +21,7 @@ function Detalles() {
   });
 
   const [cupon, setCupon] = useState('');
+  const [error, setError] = useState(""); // 🔴 Estado para mostrar error
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -41,13 +42,24 @@ function Detalles() {
   }, []);
 
   const handleSubmit = async () => {
+    // Campos obligatorios
+    const requiredFields = ["email", "nombre", "direccion", "ciudad", "codigoPostal", "provincia", "pais"];
+    const emptyField = requiredFields.find(field => !formData[field].trim());
+
+    if (emptyField) {
+      setError("⚠️ Por favor completa todos los campos obligatorios antes de continuar.");
+      return;
+    }
+
+    setError(""); // Limpia error si todo está bien
+
     try {
       const response = await postDetalles({ ...formData, carrito });
       console.log('Detalles guardados:', response);
       navigate('/envio');
     } catch (error) {
       console.error("Error al guardar los detalles:", error);
-      alert("Hubo un problema al enviar los detalles. Intenta nuevamente.");
+      setError("Hubo un problema al enviar los detalles. Intenta nuevamente.");
     }
   };
 
@@ -63,25 +75,77 @@ function Detalles() {
         <section className="formulario">
           <h2>Contacto</h2>
           <p>¿No tienes una cuenta? <a href="/registro">Registrarse</a></p>
-          <input type="email" placeholder="Correo electrónico o número telefónico" name="email" value={formData.email} onChange={handleChange} />
+          <input
+            type="email"
+            placeholder="Correo electrónico o número telefónico"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
           <div className="checkbox">
-            <input type="checkbox" id="boletin" name="boletin" checked={formData.boletin} onChange={handleChange} />
+            <input
+              type="checkbox"
+              id="boletin"
+              name="boletin"
+              checked={formData.boletin}
+              onChange={handleChange}
+            />
             <label htmlFor="boletin"> Apúntame al boletín de TicoLand para obtener un 10% de descuento.</label>
           </div>
 
           <h2>Dirección de envío</h2>
           <div className="row">
-            <input type="text" placeholder="Nombre" name="nombre" value={formData.nombre} onChange={handleChange} />
-            <input type="text" placeholder="Segundo nombre" name="segundoNombre" value={formData.segundoNombre} onChange={handleChange} />
+            <input
+              type="text"
+              placeholder="Nombre"
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Segundo nombre"
+              name="segundoNombre"
+              value={formData.segundoNombre}
+              onChange={handleChange}
+            />
           </div>
-          <input type="text" placeholder="Dirección exacta" name="direccion" value={formData.direccion} onChange={handleChange} />
-          <input type="text" placeholder="Nota para el envío (opcional)" name="nota" value={formData.nota} onChange={handleChange} />
+          <input
+            type="text"
+            placeholder="Dirección exacta"
+            name="direccion"
+            value={formData.direccion}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Nota para el envío (opcional)"
+            name="nota"
+            value={formData.nota}
+            onChange={handleChange}
+          />
 
           <div className="row">
-            <input type="text" placeholder="Ciudad" name="ciudad" value={formData.ciudad} onChange={handleChange} />
-            <input type="text" placeholder="Código postal" name="codigoPostal" value={formData.codigoPostal} onChange={handleChange} />
-            <select name="provincia" value={formData.provincia} onChange={handleChange}>
+            <input
+              type="text"
+              placeholder="Ciudad"
+              name="ciudad"
+              value={formData.ciudad}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Código postal"
+              name="codigoPostal"
+              value={formData.codigoPostal}
+              onChange={handleChange}
+            />
+            <select
+              name="provincia"
+              value={formData.provincia}
+              onChange={handleChange}
+            >
               <option value="">Provincia</option>
               <option value="San José">San José</option>
               <option value="Alajuela">Alajuela</option>
@@ -100,9 +164,18 @@ function Detalles() {
           </select>
 
           <div className="checkbox">
-            <input type="checkbox" id="guardarInfo" name="guardarInfo" checked={formData.guardarInfo} onChange={handleChange} />
+            <input
+              type="checkbox"
+              id="guardarInfo"
+              name="guardarInfo"
+              checked={formData.guardarInfo}
+              onChange={handleChange}
+            />
             <label htmlFor="guardarInfo"> Guardar esta información para una futura compra rápida</label>
           </div>
+
+          {/* Mensaje de error */}
+          {error && <p className="error-msg">{error}</p>}
 
           <div className="acciones">
             <a href="/carrito" className="link">Volver al carrito</a>
@@ -124,14 +197,28 @@ function Detalles() {
           ))}
 
           <div className="cupon">
-            <input type="text" placeholder="Código de cupón" value={cupon} onChange={handleCuponChange} />
+            <input
+              type="text"
+              placeholder="Código de cupón"
+              value={cupon}
+              onChange={handleCuponChange}
+            />
             <button>Añadir código</button>
           </div>
 
           <div className="totales">
-            <div><span>Subtotal</span><span>$ {carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0).toFixed(2)}</span></div>
-            <div><span>Envío</span><span>Gratis</span></div>
-            <div className="total"><span>Total</span><span>$ {carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0).toFixed(2)}</span></div>
+            <div>
+              <span>Subtotal</span>
+              <span>$ {carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0).toFixed(2)}</span>
+            </div>
+            <div>
+              <span>Envío</span>
+              <span>Gratis</span>
+            </div>
+            <div className="total">
+              <span>Total</span>
+              <span>$ {carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0).toFixed(2)}</span>
+            </div>
           </div>
         </aside>
       </div>
@@ -140,4 +227,6 @@ function Detalles() {
 }
 
 export default Detalles;
+
+
 

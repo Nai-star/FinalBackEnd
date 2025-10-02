@@ -14,6 +14,9 @@ import PagoP from '../pages/PagoP'
 import ConfirmacionP from '../pages/ConfirmacionP'
 import AdminP from '../pages/AdminP'
 import LoginAdmin from '../pages/LoginAdmin'
+import Contacto from '../components/contacto/Contacto'
+import RutaPrivadaAdmin from "../routes/RutaPrivadaAdmin"
+import AcercaDeTicoland from "../components/acercade/AcercaDeTicoland"
 
 
 const Routing=()=> {
@@ -34,8 +37,12 @@ const Routing=()=> {
             <Route path="/envio" element={<EnvioP />} />
                <Route path="/pago" element={<PagoP />} />
               <Route path="/confi" element={<ConfirmacionP />} />
-               <Route path="/Admin" element={<AdminP />} /> 
+              <Route
+               path="/Admin" element={<RutaPrivadaAdmin> <AdminP /></RutaPrivadaAdmin>}/>
+
               <Route path="/registroAdmin" element={<LoginAdmin />} /> 
+              <Route path="/contacto" element={<Contacto />} /> 
+                <Route path="/acerca" element={<AcercaDeTicoland />} /> 
         </Routes>
       </Router>
     </div>

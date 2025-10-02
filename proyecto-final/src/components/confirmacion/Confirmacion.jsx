@@ -13,7 +13,7 @@ function Confirmacion() {
       try {
         const usuarios = await getUsuarios();
         if (usuarios && usuarios.length > 0) {
-          const usuario = usuarios[0]; // usamos el primer usuario
+          const usuario = usuarios[0]; 
           setUserData(usuario);
           setCarrito(usuario.carrito || []);
         }

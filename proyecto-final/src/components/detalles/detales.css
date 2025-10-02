@@ -231,3 +231,10 @@
         padding-left: 0;
     }
 }
+.error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+

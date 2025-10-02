@@ -1,0 +1,80 @@
+.container-contacto {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f8f8;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  height: 60px;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+}
+
+.menu button {
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.info-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.info-section h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-section p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-section li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.redes-section {
+  text-align: center;
+  margin: 20px;
+}
+
+.redes a {
+  color: #0077cc;
+  font-weight: bold;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.redes a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: auto;
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}

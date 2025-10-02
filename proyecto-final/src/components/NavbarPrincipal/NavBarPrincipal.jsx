@@ -24,13 +24,12 @@ export default function PaginaPrincipal() {
         {menuOpen && (
           <div className="dropdown-content">
             <Link to="/servicio1">Nueva Estación</Link>
-            <Link to="/servicio2">Más buscado</Link>
-            <Link to="/servicio3">Más vendido</Link>
+           
           </div>
         )}
       </div>
-      <Link to="/about">Acerca de</Link>
-      <Link to="/contact">Contactanos</Link>
+      <Link to="/acerca">Acerca de</Link>
+      <Link to="/contacto">Contactanos</Link>
 
       <svg onClick={()=> navigate ("/login")} className="usuario"  viewBox="0 0 25 24"  xmlns="http://www.w3.org/2000/svg" transform="rotate(0 0 0)">
       <path fillRule="evenodd" clipRule="evenodd" d="M16.4337 6.35C16.4337 8.74 14.4937 10.69 12.0937 10.69L12.0837 10.68C9.69365 10.68 7.74365 8.73 7.74365 6.34C7.74365 3.95 9.70365 2 12.0937 2C14.4837 2 16.4337 3.96 16.4337 6.35ZM14.9337 6.34C14.9337 4.78 13.6637 3.5 12.0937 3.5C10.5337 3.5 9.25365 4.78 9.25365 6.34C9.25365 7.9 10.5337 9.18 12.0937 9.18C13.6537 9.18 14.9337 7.9 14.9337 6.34Z" fill="#343C54"/>

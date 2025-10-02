@@ -6,7 +6,7 @@
 }
 
 /* Contenedor de las cards */
-.cards-container {
+.cards-container1 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -14,7 +14,7 @@
 }
 
 /* Card individual */
-.card {
+.card1 {
   width: 60px; /* miniatura pequeña */
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -30,13 +30,13 @@
 }
 
 /* Hover de la card */
-.card:hover {
+.card1:hover {
   transform: translateY(-3px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 /* Imagen de la card */
-.card-img {
+.card-img1 {
   width: 100%;
   height: 40px; /* muy pequeña */
   object-fit: cover;
@@ -44,21 +44,21 @@
 }
 
 /* Información dentro de la card */
-.card-info {
+.card-info1 {
   padding: 3px;
   text-align: center;
   width: 100%;
 }
 
 /* Título del producto */
-.card-info h3 {
+.card-info1 h3 {
   margin: 2px 0;
   font-size: 0.55rem;
   color: #333;
 }
 
 /* Precio o detalle adicional */
-.card-info p {
+.card-info1 p {
   margin: 0;
   color: #333;
   font-weight: bold;

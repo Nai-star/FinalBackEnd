@@ -40,19 +40,19 @@ const Coleccion = () => {
 
   return (
     <div className="coleccion-container">
-      <h2>Mis Productos</h2>
-      <div className="cards-container">
+      <h2>Productos</h2>
+      <div className="cards-container1">
         {productos.length === 0 ? (
           <p>No hay productos aún</p>
         ) : (
           productos.map((producto) => (
             <div
               key={producto.id}
-              className="card"
+              className="card1"
               onClick={() => abrirModal(producto)}
             >
-              <img src={producto.img} alt={producto.nombre} className="card-img" />
-              <div className="card-info">
+              <img src={producto.img} alt={producto.nombre} className="card-img1" />
+              <div className="card-info1">
                 <h3>{producto.nombre}</h3>
                 <p>${producto.precio}</p>
               </div>

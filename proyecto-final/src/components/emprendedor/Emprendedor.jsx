@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Logoblanco from "../../assets/Logoblanco.png";
-import {
-  getProductos,
-  postProductos,
-  deleteProductos,
-  patchProductos,
-} from "../../services/servicios";
+import { getProductos,postProductos,deleteProductos,  patchProductos,} from "../../services/servicios";
 import "./emprendedor.css";
 
 const Emprendedor = () => {
   const [productos, setProductos] = useState([]);
   const [draggedImage, setDraggedImage] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false); // Para agregar producto
   const [modalData, setModalData] = useState({ nombre: "", precio: "" });
+
+  const [editModalOpen, setEditModalOpen] = useState(false); // Para editar
+  const [editData, setEditData] = useState({ id: null, nombre: "", precio: "" });
+
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false); // Para eliminar
+  const [deleteId, setDeleteId] = useState(null);
 
   const navigate = useNavigate();
 
@@ -26,10 +28,10 @@ const Emprendedor = () => {
     fetchProductos();
   }, []);
 
-  // Guardar producto en db.json
+  // Guardar producto
   const guardarProducto = async (imgBase64, nombre, precio) => {
     const nuevoProducto = { nombre, precio, img: imgBase64 };
-    const guardado = await postProductos(nuevoProducto); // ID generado
+    const guardado = await postProductos(nuevoProducto);
     setProductos((prev) => [...prev, guardado]);
   };
 
@@ -45,7 +47,7 @@ const Emprendedor = () => {
       reader.readAsDataURL(file);
       reader.onload = () => {
         setDraggedImage(reader.result);
-        setModalOpen(true); // Abrir modal para nombre y precio
+        setModalOpen(true); // Abrir modal agregar
         setModalData({ nombre: "", precio: "" });
       };
     }
@@ -53,7 +55,7 @@ const Emprendedor = () => {
 
   const allowDrop = (e) => e.preventDefault();
 
-  // Modal guardar
+  // Guardar en modal de nuevo producto
   const handleModalSave = async () => {
     if (!modalData.nombre || !modalData.precio) return;
     await guardarProducto(draggedImage, modalData.nombre, modalData.precio);
@@ -61,26 +63,33 @@ const Emprendedor = () => {
     setDraggedImage(null);
   };
 
-  // Editar producto
-  const handleEditar = async (producto) => {
-    const nuevoNombre = prompt("Nuevo nombre:", producto.nombre);
-    const nuevoPrecio = prompt("Nuevo precio:", producto.precio);
-    if (nuevoNombre && nuevoPrecio) {
-      const actualizado = await patchProductos(producto.id, {
-        nombre: nuevoNombre,
-        precio: nuevoPrecio,
-      });
-      setProductos((prev) =>
-        prev.map((p) => (p.id === producto.id ? actualizado : p))
-      );
-    }
+  // Editar producto (abrir modal)
+  const handleEditar = (producto) => {
+    setEditData({ id: producto.id, nombre: producto.nombre, precio: producto.precio });
+    setEditModalOpen(true);
   };
 
-  // Eliminar producto
-  const handleEliminar = async (producto) => {
-    if (!producto.id) return;
-    await deleteProductos(producto.id);
-    setProductos((prev) => prev.filter((p) => p.id !== producto.id));
+  const handleEditSave = async () => {
+    const actualizado = await patchProductos(editData.id, {
+      nombre: editData.nombre,
+      precio: editData.precio,
+    });
+    setProductos((prev) =>
+      prev.map((p) => (p.id === editData.id ? actualizado : p))
+    );
+    setEditModalOpen(false);
+  };
+
+  // Eliminar producto (abrir confirmación)
+  const handleEliminar = (producto) => {
+    setDeleteId(producto.id);
+    setConfirmDeleteOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    await deleteProductos(deleteId);
+    setProductos((prev) => prev.filter((p) => p.id !== deleteId));
+    setConfirmDeleteOpen(false);
   };
 
   return (
@@ -90,7 +99,7 @@ const Emprendedor = () => {
         <img src={Logoblanco} alt="Logo" className="logo" />
         <div className="menu">
           <button onClick={() => navigate("/")}>Inicio</button>
-          <button>Perfil</button>
+        
         </div>
       </nav>
 
@@ -112,7 +121,7 @@ const Emprendedor = () => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal agregar producto */}
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -135,6 +144,43 @@ const Emprendedor = () => {
               }
             />
             <button onClick={handleModalSave}>Guardar</button>
+            <button onClick={() => setModalOpen(false)}>Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal editar */}
+      {editModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Editar producto</h3>
+            <input
+              type="text"
+              value={editData.nombre}
+              onChange={(e) =>
+                setEditData({ ...editData, nombre: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              value={editData.precio}
+              onChange={(e) =>
+                setEditData({ ...editData, precio: e.target.value })
+              }
+            />
+            <button onClick={handleEditSave}>Guardar cambios</button>
+            <button onClick={() => setEditModalOpen(false)}>Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal confirmación eliminar */}
+      {confirmDeleteOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>¿Seguro que quieres eliminar este producto?</h3>
+            <button onClick={confirmDelete}>Sí, eliminar</button>
+            <button onClick={() => setConfirmDeleteOpen(false)}>Cancelar</button>
           </div>
         </div>
       )}
@@ -148,7 +194,3 @@ const Emprendedor = () => {
 };
 
 export default Emprendedor;
-
-
-
-
