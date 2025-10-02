@@ -16,32 +16,27 @@ p a {
   font-size: 14px;
 }
 
-/* ===== Contenedor Principal (Ajustes para asegurar la estructura) ===== */
+/* ===== Contenedor Principal ===== */
 div {
   box-sizing: border-box;
 }
 
-section {
-  margin-bottom: 20px;
-}
-
 .container {
   display: grid;
-  /* Mantenemos un ancho fijo para el resumen de carrito */
-  grid-template-columns: 1fr 380px; 
-  gap: 0; 
+  grid-template-columns: 1fr 380px;
+  gap: 0;
   max-width: 1100px;
   margin: 40px auto;
-  padding: 0; 
+  padding: 0;
   background: white;
-  min-height: 700px; 
+  min-height: 700px;
 }
 
-/* ===== Columna Izquierda (Sección Principal: form-section ahora es shipping-section) ===== */
-.shipping-section { /* Nuevo nombre para la sección izquierda */
+/* ===== Columna Izquierda: Formulario ===== */
+.shipping-section {
   display: flex;
   flex-direction: column;
-  padding: 20px 40px 20px 20px; /* Padding similar al formulario */
+  padding: 20px 40px 20px 20px;
 }
 
 .shipping-section h2, .shipping-section h3 {
@@ -51,10 +46,9 @@ section {
   margin-top: 25px;
 }
 
-/* Estilo para los bloques de contacto y envío */
+/* ===== Bloques de contacto y dirección ===== */
 .info-block {
   border: 1px solid #dcdcdc;
-  border-radius: 4px;
   padding: 15px;
   margin-bottom: 20px;
   font-size: 14px;
@@ -69,48 +63,48 @@ section {
 }
 
 .info-block span:first-child {
-    color: #444;
+  color: #444;
 }
 
 .info-block span:last-child {
-    font-size: 13px;
-    color: #56B280; /* Color de edición */
-    cursor: pointer;
+  font-size: 13px;
+  color: #56B280;
+  cursor: pointer;
 }
 
-/* Estilo para el método de envío */
+.info-block input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+}
+
+/* ===== Método de envío ===== */
 .shipping-method {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    padding: 15px;
-    font-size: 14px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dcdcdc;
+  padding: 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .shipping-method input[type="radio"] {
-    margin-right: 10px;
-    /* Necesitas personalizar el radio button si quieres que se vea exacto */
+  margin-right: 10px;
 }
 
 .shipping-method .price {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-/* Botones */
+/* ===== Botones ===== */
 .actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
-}
-
-.actions a {
-  font-size: 14px;
-  color: #56B280;
-  text-decoration: none;
 }
 
 .actions button {
@@ -123,101 +117,124 @@ section {
   font-size: 16px;
 }
 
-/* ===== Columna Derecha (Resumen de compra) ===== */
+/* ===== Columna Derecha: Resumen del carrito ===== */
 .cart-summary {
-  background: #f0f0f0; 
-  padding: 30px; 
-  border-radius: 0; 
-  border: none; 
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 0; /* Sin bordes redondeados */
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos al inicio */
+  justify-content: flex-start; /* Fuerza que todo quede arriba */
+  gap: 15px;
 }
 
-/* Estilos de Item (Ajuste para la cantidad en el badge) */
+
+/* ===== Items del carrito ===== */
 .cart-item {
   display: flex;
-  align-items: flex-start; /* Cambio a flex-start para alinear la imagen */
-  margin-bottom: 15px;
-  position: relative; /* Para el badge de cantidad */
+  align-items: flex-start;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .cart-item img {
-  width: 60px; /* Reducido un poco el tamaño */
+  width: 60px;
   height: 60px;
   object-fit: cover;
-  border-radius: 4px;
   margin-right: 15px;
 }
 
-/* Badge de cantidad sobre la imagen */
 .quantity-badge {
-    position: absolute;
-    top: -8px;
-    left: 55px; /* Ajustar posición */
-    background: #56B280;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
-    border: 2px solid #f0f0f0; /* Borde del color del fondo del carrito */
-}
-
-.cart-item div {
-  flex: 1;
-}
-
-.cart-item p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.cart-item .price {
+  position: absolute;
+  top: -8px;
+  left: 50px;
+  background: #56B280;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
   font-weight: bold;
-  color: #56B280;
 }
 
+/* ===== Cupón compacto ===== */
 .coupon {
   display: flex;
   gap: 10px;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .coupon input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #dcdcdc;
   border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
 }
 
 .coupon button {
-  background: #b5b5b5;
-  border: none;
   padding: 10px 15px;
-  border-radius: 4px;
+  background: #333;
   color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 }
 
-/* Totales (Ajuste de separación de las líneas) */
+.coupon button:hover {
+  background: #555;
+}
+
+/* ===== Totales ===== */
 .totals {
   border-top: 1px solid #e6e6e6;
   padding-top: 15px;
   padding-bottom: 10px;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .totals div {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
   font-size: 14px;
 }
 
 .totals div:last-child {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 15px; /* Más espacio para el total final */
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    padding: 20px 10px;
+  }
+
+  .shipping-section {
+    padding: 20px 10px;
+  }
+
+  .coupon input {
+    font-size: 12px;
+  }
+
+  .coupon button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+

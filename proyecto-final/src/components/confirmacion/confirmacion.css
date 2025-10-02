@@ -1,309 +1,143 @@
-/*
-==================================================
-  detales.css - Estilos Consolidados para Checkout
-==================================================
-*/
-
-/* ===== Layout General ===== */
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
+.confirmacion-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
 }
 
-h1 {
-  display: none;
+.confirmacion-left {
+  flex: 2;
 }
 
-p a {
-  color: #56B280;
-  text-decoration: none;
+.confirmacion-right {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.breadcrumb {
   font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+.breadcrumb span {
+  font-weight: bold;
+  color: #333;
 }
 
-/* ===== Contenedor Principal (Estructura de Grid) ===== */
-div {
-  box-sizing: border-box;
+.confirmacion-card {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
 }
 
-section {
+.check-icon {
+  font-size: 80px;
+  color: #56B280;
+  border: 3px solid #56B280;
+  border-radius: 50%;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  line-height: 90px;
   margin-bottom: 20px;
 }
 
-.container {
-  display: grid;
-  /* Ancho fijo para el resumen (derecha) y flexible para el contenido (izquierda) */
-  grid-template-columns: 1fr 380px; 
-  gap: 0; 
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0; 
-  background: white;
-  min-height: 700px; 
+.confirmacion-card h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-/* ---------------------------------------------------------------------- */
-/* ===== COLUMNA IZQUIERDA: CONTENIDO PRINCIPAL (DETALLES/ENVÍO/PAGO) ===== */
-/* ---------------------------------------------------------------------- */
-.left-section { 
-  display: flex;
-  flex-direction: column;
-  padding: 20px 40px 20px 20px;
-}
-
-.left-section h2, .left-section h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  margin-top: 25px;
-}
-
-/* --- ESTILOS DE ETAPA: DETALLES (Formulario) --- */
-.form-section input,
-.form-section select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.form-inline {
-  display: flex;
-  gap: 15px;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-/* --- ESTILOS DE ETAPA: ENVÍO / PAGO (Resúmenes de Info) --- */
-.info-block {
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  padding: 15px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  background: white;
-}
-
-.info-block div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.info-block span:last-child {
-    font-size: 13px;
-    color: #56B280; 
-    cursor: pointer;
-}
-
-/* Método de envío (Envío) */
-.shipping-method {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    padding: 15px;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.shipping-method .price {
-    font-weight: bold;
-}
-
-/* --- ESTILOS DE ETAPA: PAGO (Métodos y Campos) --- */
-.payment-method {
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    overflow: hidden; 
-}
-
-.payment-block {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 14px;
-    background: white;
-}
-
-.payment-block.selected {
-    background-color: #e0f2e0; /* Verde claro */
-    border-color: #56B280;
-}
-
-.payment-fields {
-    padding: 0 15px 15px 15px;
-    border-top: 1px solid #dcdcdc;
-}
-
-.payment-fields .input-group {
-    margin-bottom: 10px;
-}
-
-.payment-fields .input-inline {
-    display: flex;
-    gap: 10px;
-}
-
-.payment-fields .input-inline input {
-    flex: 1;
-}
-
-.input-icon-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input-icon-group span {
-    position: absolute;
-    right: 12px;
-    color: #888;
-    font-size: 16px;
-}
-
-.shipping-radio-option {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ===== ESTILOS COMPARTIDOS (Botones y Columna Derecha) ===== */
-/* ---------------------------------------------------------------------- */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px; 
-}
-
-.actions a {
-  font-size: 14px;
+.order {
   color: #56B280;
-  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.actions button {
+.mensaje {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.btn-principal {
   background: #56B280;
   color: white;
   border: none;
   padding: 12px 20px;
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 16px;
-}
-
-/* Columna Derecha (Resumen de compra) */
-.cart-summary {
-  background: #f0f0f0; 
-  padding: 30px; 
-  border-radius: 0; 
-  border: none; 
-}
-
-.cart-item {
-  display: flex;
-  align-items: flex-start;
+  border-radius: 6px;
+  cursor: pointer;
   margin-bottom: 15px;
-  position: relative; 
+  width: 60%;
 }
 
-.cart-item img {
-  width: 60px; 
-  height: 60px;
+.btn-principal:hover {
+  background: #469c6d;
+}
+
+.btn-secundario {
+  background: none;
+  border: none;
+  color: #56B280;
+  font-size: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.producto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.producto img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 4px;
-  margin-right: 15px;
 }
 
-.quantity-badge {
-    position: absolute;
-    top: -8px;
-    left: 55px; 
-    background: #56B280;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
-    border: 2px solid #f0f0f0; 
-}
-
-.cart-item div {
-  flex: 1;
-}
-
-.cart-item p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.cart-item .price {
+.nombre {
+  font-size: 16px;
   font-weight: bold;
+  color: #333;
+}
+
+.precio {
+  font-size: 16px;
   color: #56B280;
 }
 
-.coupon {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
+.resumen {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #444;
 }
 
-.coupon input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-}
-
-.coupon button {
-  background: #b5b5b5;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-}
-
-/* Totales */
-.totals {
-  border-top: 1px solid #e6e6e6;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  margin-top: 10px;
-}
-
-.totals div {
+.fila {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-.totals div:last-child {
-  font-size: 18px;
+.fila.total {
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 20px;
+}
+
+.gratis {
+  color: #000;
+  font-weight: bold;
+}
+
+.precio-total {
+  font-size: 20px;
+  color: #56B280;
 }

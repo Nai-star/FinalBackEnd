@@ -24,6 +24,7 @@ export async function getAdmin() {
 }
 
 
+
 export async function postUsuarios(usuario) {
    try {
       const response = await fetch("http://localhost:3001/usuarios", {
@@ -152,7 +153,8 @@ export async function postProductos(productos) {
 
 export async function getProductos(id) {
    try {
-      const response = await fetch(`http://localhost:3001/productos/${id}`);
+      const url = id ? `http://localhost:3001/productos/${id}` : "http://localhost:3001/productos";
+      const response = await fetch(url);
       if (!response.ok) throw new Error("Error al obtener el producto");
       return await response.json();
    } catch (error) {
@@ -235,7 +237,7 @@ export async function getCarrito() {
 }
 
 // Eliminar un producto del carrito por ID
-export async function deleteFromCarrito(id) {
+export async function deleteCarrito(id) {
    try {
       const response = await fetch(`http://localhost:3001/carrito/${id}`, {
          method: "DELETE"
@@ -275,6 +277,16 @@ export async function postDetalles(detalles) {
       return await response.json();
    } catch (error) {
       console.error("Error al registrar el usuario", error);
+      throw error;
+   }
+}
+export async function getDetalles() {
+   try {
+      const response = await fetch("http://localhost:3001/detalles");
+      if (!response.ok) throw new Error("Error al obtener el carrito");
+      return await response.json();
+   } catch (error) {
+      console.error("Error al obtener el carrito:", error);
       throw error;
    }
 }

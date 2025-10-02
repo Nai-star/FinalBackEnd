@@ -2,7 +2,7 @@
 .footer-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ocupa toda la pantalla */
+  min-height: 100%; /* ocupa toda la pantalla */
 }
 
 footer {

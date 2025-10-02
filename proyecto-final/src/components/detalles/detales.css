@@ -1,128 +1,233 @@
 .detalles-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 .titulo {
-  text-align: center;
-  margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .breadcrumb {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
 }
 
 .detalles-layout {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 0;
 }
 
+/* ===== Columna izquierda (blanca) - Formulario ===== */
 .formulario {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    flex: 2;
+    background-color: white; /* Blanco */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .formulario input,
 .formulario select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left; 
+    
+    /* CORRECCIÓN CLAVE: Asegura que inputs y selects tengan la misma altura */
+    box-sizing: border-box; 
+    
+    /* Quitar estilos nativos */
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
+/* Estilos específicos para SELECT (Añadiendo una flecha personalizada) */
+.formulario select {
+    /* SVG de una flecha hacia abajo en gris */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path fill='%23666666' d='M0 0l5 6 5-6z'/></svg>");
+    background-position: right 10px center; 
+    background-repeat: no-repeat;
+    background-size: 10px; /* Tamaño de la flecha */
+}
+
+.formulario select option {
+    text-align: left; /* Opciones alineadas a la izquierda */
+}
+
+/* Filas para campos agrupados (ej: Ciudad, Cód. Postal) */
 .row {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
+.row > * {
+    flex: 1; /* Distribuye el espacio equitativamente */
+}
+
+/* ===== ESTILO DEL CHECKBOX MODERNO ===== */
 .checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    cursor: pointer; 
+    color: #333; 
+    font-size: 14px; 
 }
 
+/* 1. Oculta el input de checkbox nativo */
+.checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+/* 2. Crea el cuadro de checkbox personalizado (usando el pseudoelemento ::before del label) */
+.checkbox label::before {
+    content: '';
+    display: inline-block;
+    width: 20px; 
+    height: 20px; 
+    border: 1px solid #999; 
+    border-radius: 4px; 
+    background-color: #fff; 
+    margin-right: 8px; /* Espacio entre el cuadro y el texto */
+    vertical-align: middle; 
+    transition: all 0.2s ease-in-out; 
+    box-sizing: border-box; 
+}
+
+/* 3. Estilo cuando el checkbox está marcado */
+.checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #56B280; /* Fondo verde */
+    border-color: #56B280; 
+    content: '✓'; /* El tick */
+    color: white; 
+    font-size: 14px; 
+    font-weight: bold;
+    text-align: center;
+    line-height: 18px; 
+}
+
+/* 4. Estilo de enfoque (accesibilidad) */
+.checkbox input[type="checkbox"]:focus + label::before {
+    box-shadow: 0 0 0 3px rgba(86, 178, 128, 0.4); 
+}
+/* ======================================= */
+
+
+/* ===== Botones y acciones ===== */
 .acciones {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .btn-principal {
-  background: #56B280;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+    background: #56B280;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .btn-principal:hover {
-  background: #44996d;
+    background: #44996d;
 }
 
+/* ===== Columna derecha (gris) - Resumen ===== */
 .resumen {
-  flex: 1;
-  border-left: 1px solid #ddd;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    flex: 1;
+    background-color: #f5f5f5; /* Gris */
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* ===== Items carrito ===== */
 .resumen-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
 }
 
 .resumen-item img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
+/* ===== Cupón ===== */
 .cupon {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .cupon input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+    box-sizing: border-box; 
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    text-align: left;
 }
 
 .cupon button {
-  padding: 10px 15px;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s ease;
 }
 
+.cupon button:hover {
+    background: #555;
+}
+
+/* ===== Totales ===== */
 .totales {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .totales div {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .total {
-  font-weight: bold;
-  font-size: 18px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ===== Responsivo ===== */
+@media screen and (max-width: 900px) {
+    .detalles-layout {
+        flex-direction: column;
+    }
+
+    .resumen {
+        border-left: none;
+        padding-left: 0;
+    }
 }

@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import "./carritoinfo.css";
 import { useNavigate } from "react-router-dom";
-import { getCarrito } from "../../services/servicios";
+import { getCarrito, deleteCarrito } from "../../services/servicios";
 
 function CarritoInfo() {
   const navigate = useNavigate();
   const [carrito, setCarrito] = useState([]);
 
   useEffect(() => {
-    getCarrito()
-      .then((data) => setCarrito(data))
-      .catch((error) => console.error("Error al obtener carrito:", error));
+    fetchCarrito();
   }, []);
 
-  // ---- helper robusto para convertir precios
+  const fetchCarrito = async () => {
+    try {
+      const data = await getCarrito();
+      setCarrito(data);
+    } catch (error) {
+      console.error("Error al obtener carrito:", error);
+    }
+  };
+
   const parsePrice = (p) => {
     if (typeof p === "number") return p;
     if (!p) return 0;
@@ -22,9 +28,15 @@ function CarritoInfo() {
     return isNaN(num) ? 0 : num;
   };
 
-  // ---- funciones de carrito ----
-  const handleRemove = (id) => {
-    setCarrito((prev) => prev.filter((item) => item.id !== id));
+  // ---- Función para eliminar producto ----
+  const handleRemove = async (id) => {
+    try {
+      await deleteCarrito(id); // 🔹 Borra del db.json
+      setCarrito((prev) => prev.filter((item) => item.id !== id)); // Actualiza estado local
+    } catch (error) {
+      console.error("Error al eliminar del carrito:", error);
+      alert("No se pudo eliminar el producto");
+    }
   };
 
   const handleIncrease = (id) => {
@@ -66,7 +78,7 @@ function CarritoInfo() {
         <p>Tu carrito está vacío.</p>
       ) : (
         <div className="cart-table">
-          <div className="cart-titles">
+          <div className="cart-table-header">
             <span>Producto</span>
             <span>Precio</span>
             <span>Cantidad</span>
@@ -82,7 +94,7 @@ function CarritoInfo() {
               <div key={item.id} className="cart-item">
                 <div className="cart-product">
                   {item.img && <img src={item.img} alt={item.producto} />}
-                  <div>
+                  <div className="product-details">
                     <p>{item.producto}</p>
                     <button
                       className="remove-btn"
@@ -93,31 +105,39 @@ function CarritoInfo() {
                   </div>
                 </div>
 
-                <span>${price.toFixed(2)}</span>
-
-                <div className="quantity-controls">
-                  <button onClick={() => handleDecrease(item.id)}>-</button>
-                  <span>{qty}</span>
-                  <button onClick={() => handleIncrease(item.id)}>+</button>
+                <div className="item-price">
+                  <span>${price.toFixed(2)}</span>
                 </div>
 
-                <span>${totalItem.toFixed(2)}</span>
+                <div className="item-quantity">
+                  <div className="quantity-controls">
+                    <button onClick={() => handleDecrease(item.id)}>-</button>
+                    <input type="text" readOnly value={qty} />
+                    <button onClick={() => handleIncrease(item.id)}>+</button>
+                  </div>
+                </div>
+
+                <div className="item-total">
+                  <span>${totalItem.toFixed(2)}</span>
+                </div>
               </div>
             );
           })}
 
-          <div className="cart-summary">
-            <span>Sub-total</span>
-            <span>${calcularTotal().toFixed(2)}</span>
+          <div className="cart-summary-wrapper">
+            <div className="cart-summary">
+              <span>Sub-total</span>
+              <span>${calcularTotal().toFixed(2)}</span>
+            </div>
+
+            <p className="cart-note">
+              Los impuestos y el costo de envío se calcularán más adelante.
+            </p>
+
+            <button className="buy-btn" onClick={() => navigate("/detalles")}>
+              Comprar
+            </button>
           </div>
-
-          <p className="cart-note">
-            Los impuestos y el costo de envío se calcularán más adelante.
-          </p>
-
-          <button className="buy-btn" onClick={() => navigate("/detalles")}>
-            Comprar
-          </button>
         </div>
       )}
     </div>
@@ -125,3 +145,4 @@ function CarritoInfo() {
 }
 
 export default CarritoInfo;
+

@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./productoP.css";
-
-const productos = [
-  { id: 1, nombre: "Conjunto verde–VENUS CR", precio: "20.00$", img: "/img/vestido-verde.jpg" },
-  { id: 2, nombre: "Vestido Halter–VENUS CR", precio: "25.00$", img: "/img/vestido-rojo.jpg" },
-  { id: 3, nombre: "Vela Cielo–AIRE", precio: "10.99$", img: "/img/vela-cielo.jpg" },
-  { id: 4, nombre: "Vela CR–AIRE", precio: "9.99$", img: "/img/vela-cr.jpg" },
-  { id: 5, nombre: "Aceites Doterra–AIRE", precio: "9.99$", img: "/img/aceites.jpg" },
-  { id: 6, nombre: "Taza–AIRE", precio: "18.99$", img: "/img/taza.jpg" },
-  { id: 7, nombre: "Conjunto lila–VENUS CR", precio: "21.99$", img: "/img/conjunto-lila.jpg" },
-  { id: 8, nombre: "Print-mesh–VENUS CR", precio: "32.99$", img: "/img/conjunto-mesh.jpg" },
-];
+import { getProductos } from "../../services/servicios"; // asegúrate de la ruta correcta
 
 function ProductoPrincipal() {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const fetchProductos = async () => {
+      try {
+        const data = await getProductos();
+        setProductos(data);
+      } catch (error) {
+        console.error("Error al cargar los productos:", error);
+      }
+    };
+
+    fetchProductos();
+  }, []);
+
   return (
     <section className="productos-section">
       <h2>Productos</h2>
@@ -32,4 +37,5 @@ function ProductoPrincipal() {
 }
 
 export default ProductoPrincipal;
+
 

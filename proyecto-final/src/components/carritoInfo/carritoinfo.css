@@ -1,133 +1,171 @@
+/* === AJUSTES PARA DISPOSICIÓN SIN TABLA === */
 .cart-container {
-  width: 80%;
-  margin: auto;
-  font-size: 14px; /* tamaño base igual al footer */
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
-.cart-header-top {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 15px;
+/* 1. Encabezados de Columna (Producto, Precio, Cantidad, Total) */
+.cart-table-header {
+    display: flex; /* Contenedor Flex para la fila de encabezados */
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc; /* Línea separadora */
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #333;
 }
 
-.cart-header-top h1 {
-  font-size: 18px; /* más pequeño */
+.cart-table-header span {
+    text-align: right; /* Alineación por defecto a la derecha para números */
+    /* Anchos base que definen las "columnas" */
+    flex-basis: 15%; 
 }
 
-.back-link {
-  color: #56B280;
-  cursor: pointer;
-  margin-top: 5px;
-  font-size: 13px;
+/* El encabezado 'Producto' debe alinearse a la izquierda y ocupar más espacio */
+.cart-table-header span:first-child {
+    flex-basis: 55%; /* Ocupa más de la mitad del espacio */
+    text-align: left;
+    /* Ajuste para que el texto 'Producto' se alinee con el texto del producto (no la imagen) */
+    padding-left: 95px; 
 }
 
-.cart-table {
-  width: 100%;
+/* El encabezado 'Cantidad' necesita su propio ancho */
+.cart-table-header span:nth-child(3) {
+    flex-basis: 15%; /* Espacio para el control de Cantidad */
+    text-align: right; 
+    padding-right: 15px; /* Para alinear con el control */
 }
 
-.cart-titles {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-  font-weight: bold;
-  font-size: 13px;
-}
 
+/* 2. Fila de Producto (El item en sí) */
 .cart-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos a la parte superior */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
 }
 
+/* Columna 1: Producto (Imagen + Nombre/Eliminar) */
 .cart-product {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex-basis: 55%; /* Debe coincidir con el ancho del encabezado 'Producto' */
 }
 
 .cart-product img {
-  width: 70px;  /* más pequeño que antes */
-  height: auto;
-  border-radius: 6px;
+    width: 80px;
+    height: auto;
+    border-radius: 0;
 }
-
 .remove-btn {
-  background: none;
-  border: none;
-  color: #56B280;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 0;
+    color: #56B280;
+    font-size: 12px;
 }
 
+/* 3. Precios y Cantidad (Las otras columnas) */
+.item-price,
+.item-quantity,
+.item-total {
+    /* Mantiene los elementos alineados y les da la altura de la fila */
+    display: flex;
+    height: 80px; /* Altura de referencia del producto */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: flex-end; /* Alinear contenido a la derecha */
+    font-weight: 500;
+}
+
+.item-price {
+    flex-basis: 15%; /* Debe coincidir con el ancho del encabezado 'Precio' */
+}
+
+.item-quantity {
+    flex-basis: 15%; /* Debe coincidir con el ancho del encabezado 'Cantidad' */
+    justify-content: center; /* Centrar los controles de cantidad */
+}
+
+.item-total {
+    flex-basis: 15%; /* Debe coincidir con el ancho del encabezado 'Total' */
+    font-weight: bold;
+}
+
+/* Controles de cantidad */
 .quantity-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #56B280;
-  border-radius: 4px;
-  overflow: hidden;
-  width: fit-content;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .quantity-controls button {
-  border: none;
-  background: #f9f9f9;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  color: #56B280;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
+    /* Estilos para los botones +/- */
+    border: none;
+    background: white;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    color: #56B280;
+    font-size: 16px;
+    line-height: 1;
 }
 
-.quantity-controls button:hover {
-  background: #e6f4ec;
+.quantity-controls input {
+    /* Estilos para el valor de la cantidad */
+    width: 24px; 
+    height: 28px;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
 }
 
-.quantity-controls span {
-  width: 25px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 20px;
-  border-left: 1px solid #56B280;
-  border-right: 1px solid #56B280;
+/* 4. Resumen y Botón */
+.cart-summary-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Todo a la derecha */
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
 }
 
 .cart-summary {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 0;
-  font-size: 14px;
-  font-weight: bold;
-  gap: 15px;
+    display: flex;
+    gap: 15px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0;
+}
+
+.cart-summary span:last-child {
+    font-weight: bold; 
+    min-width: 50px; 
+    text-align: right;
 }
 
 .cart-note {
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
   text-align: right;
+  margin-top: 10px;
 }
 
 .buy-btn {
   background: #56B280;
   color: white;
   border: none;
-  padding: 8px 16px;  /* más compacto */
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  float: right;
-  margin-top: 8px;
+  font-size: 15px;
+  margin-top: 15px;
 }
-
-

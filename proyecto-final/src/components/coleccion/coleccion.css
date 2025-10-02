@@ -1,43 +1,105 @@
+/* Contenedor principal de la colección */
 .coleccion-container {
-  padding: 20px;
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+/* Contenedor de las cards */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
+  justify-content: flex-start;
 }
 
+/* Card individual */
 .card {
-  width: 200px;
+  width: 60px; /* miniatura pequeña */
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-    cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.6rem;
 }
 
+/* Hover de la card */
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
+/* Imagen de la card */
 .card-img {
   width: 100%;
-  height: 150px;
+  height: 40px; /* muy pequeña */
   object-fit: cover;
+  border-bottom: 1px solid #eee;
 }
 
+/* Información dentro de la card */
 .card-info {
-  padding: 10px;
+  padding: 3px;
   text-align: center;
+  width: 100%;
 }
 
+/* Título del producto */
 .card-info h3 {
-  margin: 5px 0;
+  margin: 2px 0;
+  font-size: 0.55rem;
+  color: #333;
 }
 
+/* Precio o detalle adicional */
 .card-info p {
+  margin: 0;
   color: #333;
   font-weight: bold;
+  font-size: 0.5rem;
 }
+
+/* Responsive: ajustar cards en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .card {
+    width: 55px;
+  }
+
+  .card-img {
+    height: 35px;
+  }
+
+  .card-info h3 {
+    font-size: 0.5rem;
+  }
+
+  .card-info p {
+    font-size: 0.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 50px;
+  }
+
+  .card-img {
+    height: 30px;
+  }
+
+  .card-info h3 {
+    font-size: 0.45rem;
+  }
+
+  .card-info p {
+    font-size: 0.4rem;
+  }
+}
+
+

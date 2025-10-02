@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./envio.css";
-import { getCarrito, getUsuarios } from "../../services/servicios"; // tu db.json
+import { getCarrito, getUsuarios } from "../../services/servicios"; 
 import { useNavigate } from 'react-router-dom';
 
 function Envio() {
